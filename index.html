@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roland Molnár · Projects</title>
+  <meta name="description" content="Projects Roland Molnár has built and published on GitHub.">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/1826873?v=4&s=64">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="profile" id="profile">
+    <img class="avatar" id="avatar" src="https://avatars.githubusercontent.com/u/1826873?v=4&s=160" alt="" width="80" height="80">
+    <div class="profile-text">
+      <h1 id="name">Roland Molnár</h1>
+      <p class="muted" id="meta">
+        <a href="https://github.com/molnarroland">@molnarroland</a>
+      </p>
+      <p id="bio" class="bio" hidden></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats" id="stats" aria-label="Summary"></section>
+
+    <section class="toolbar" aria-label="Filters">
+      <input type="search" id="search" placeholder="Search projects…" aria-label="Search projects">
+      <select id="language" aria-label="Filter by language">
+        <option value="">All languages</option>
+      </select>
+      <select id="sort" aria-label="Sort">
+        <option value="pushed">Recently updated</option>
+        <option value="created">Newest</option>
+        <option value="stars">Most stars</option>
+        <option value="name">Name</option>
+      </select>
+    </section>
+
+    <p class="status muted" id="status">Loading projects…</p>
+    <section class="grid" id="grid" aria-live="polite"></section>
+  </main>
+
+  <footer class="muted">
+    <span id="source"></span> ·
+    <a href="https://github.com/molnarroland?tab=repositories">All repositories on GitHub</a>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
