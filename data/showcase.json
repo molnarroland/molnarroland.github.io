@@ -1,0 +1,66 @@
+{
+  "_comment": "Curated presentation for each project. Name must match the GitHub repo name. Description, language, stars and links come live from the GitHub API. Repos not listed here still appear under 'More on GitHub'.",
+  "projects": [
+    {
+      "name": "Claudealyzer",
+      "tagline": "Every Claude Code, Codex and Gemini CLI session, searchable.",
+      "platform": "macOS · Windows · Linux",
+      "accent": "#ff7a59",
+      "icon": "assets/shots/Claudealyzer/icon.webp",
+      "shots": [
+        ["assets/shots/Claudealyzer/history-dark.webp", "History"],
+        ["assets/shots/Claudealyzer/overview.webp", "Overview"],
+        ["assets/shots/Claudealyzer/analysis-dark.webp", "Analysis"],
+        ["assets/shots/Claudealyzer/insights.webp", "Insights"],
+        ["assets/shots/Claudealyzer/costs.webp", "Costs"],
+        ["assets/shots/Claudealyzer/calendar.webp", "Calendar"],
+        ["assets/shots/Claudealyzer/history.webp", "History · light"],
+        ["assets/shots/Claudealyzer/analysis.webp", "Analysis · light"]
+      ]
+    },
+    {
+      "name": "PlexVerse",
+      "tagline": "All your media servers, one library, one remote.",
+      "platform": "Android TV",
+      "accent": "#f5b82e",
+      "icon": "assets/shots/PlexVerse/icon.svg",
+      "shots": [
+        ["assets/shots/PlexVerse/home-night.jpg", "Home · night"],
+        ["assets/shots/PlexVerse/home-day.jpg", "Home · day"],
+        ["assets/shots/PlexVerse/show-night.jpg", "Show details"],
+        ["assets/shots/PlexVerse/profiles-night.jpg", "Profiles"],
+        ["assets/shots/PlexVerse/kids-day.jpg", "Kids mode"],
+        ["assets/shots/PlexVerse/category-night.jpg", "Categories"],
+        ["assets/shots/PlexVerse/search-day.jpg", "Search"],
+        ["assets/shots/PlexVerse/servers-day.jpg", "Servers"]
+      ]
+    },
+    {
+      "name": "WorkLogger",
+      "tagline": "Your timesheet, filled in from the work you already did.",
+      "platform": "Desktop",
+      "accent": "#34d3b4",
+      "icon": "assets/shots/WorkLogger/icon.png",
+      "shots": [
+        ["assets/shots/WorkLogger/overview-dark.jpg", "Overview · dark"],
+        ["assets/shots/WorkLogger/overview.jpg", "Overview"],
+        ["assets/shots/WorkLogger/week.jpg", "Week"],
+        ["assets/shots/WorkLogger/days.jpg", "Days"],
+        ["assets/shots/WorkLogger/by-ticket.jpg", "By ticket"],
+        ["assets/shots/WorkLogger/timesheet.jpg", "Timesheet"]
+      ]
+    },
+    {
+      "name": "ClaudeProfileBar",
+      "tagline": "All your Claude accounts, one click apart.",
+      "platform": "macOS menu bar",
+      "accent": "#6aa5ff",
+      "icon": "assets/shots/ClaudeProfileBar/icon.png",
+      "shots": [
+        ["assets/shots/ClaudeProfileBar/site-1.jpg", "Usage side by side"],
+        ["assets/shots/ClaudeProfileBar/site-2.jpg", "Features"],
+        ["assets/shots/ClaudeProfileBar/site-3.jpg", "How it works"]
+      ]
+    }
+  ]
+}

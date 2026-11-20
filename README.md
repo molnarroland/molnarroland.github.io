@@ -1,17 +1,29 @@
 # molnarroland.github.io
 
-A small dashboard of the projects I've built and published on GitHub
+A showcase of the projects I've built and published on GitHub
 ([@molnarroland](https://github.com/molnarroland)).
 
-Each public, non-fork repository gets a card with its description, language,
-stars, license, last update and links to its **homepage**, its **GitHub Pages**
-site and the **repository** itself.
+What it does:
+
+- **Hero slideshow** that crossfades between screenshots of every app, with a
+  slow zoom, a colour glow that follows the current app, and per-app progress bars.
+- **One section per project** with its own crossfading screenshot window,
+  clickable thumbnails, live GitHub stats and links to the **homepage**, the
+  **GitHub Pages** site and the **source**.
+- **Lightbox**: click any screenshot for a full-screen view (← → / Esc).
+- Scroll-reveal, 3D tilt, aurora background and a cursor spotlight. All motion
+  is switched off for visitors with *reduce motion* enabled.
+- Any public repo not listed in `data/showcase.json` still appears under
+  *More on GitHub*.
 
 ## How it works
 
 - `index.html` + `assets/` — a static page, no build step.
 - On load, `assets/app.js` reads the live profile and repository list from the
   GitHub REST API, so new projects show up automatically.
+- `data/showcase.json` holds the curated part for each project: tagline,
+  platform, accent colour, icon and screenshots (in `assets/shots/<repo>/`).
+  To feature a new app, drop its screenshots there and add an entry.
 - `data/profile.json` and `data/repos.json` are a fallback snapshot used when
   the API is rate-limited (60 requests/hour per visitor IP). The
   **Update data snapshot** workflow refreshes them daily.
