@@ -62,5 +62,25 @@
         ["component:profile-panel", "Menu bar panel"]
       ]
     }
-  ]
+  ],
+  "library": {
+    "_comment": "Closing section. Repos are read live from the GitHub org; this list is the fallback.",
+    "name": "Spartan Native",
+    "kicker": "My UI theme library",
+    "tagline": "Native on every desktop. One Angular codebase.",
+    "description": "A native-look theme for spartan/ui. One set of components takes on the look of Windows 11, Windows 10, macOS 26, macOS 13–15, GNOME, KDE and ChromeOS, and follows the accent colour, light/dark mode, contrast and text size the user chose in the OS, in the browser and in Wails, Tauri or Photino.NET.",
+    "homepage": "https://spartan-native.github.io/spartan-native/",
+    "org": "Spartan-Native",
+    "npm": "https://www.npmjs.com/package/@spartan-native/theme",
+    "logo": "assets/shots/SpartanNative/logo.svg",
+    "image": ["assets/shots/SpartanNative/seven-skins.jpg", "One Harbor Backup window in all seven skins"],
+    "usedBy": ["ClaudeProfileBar", "WorkLogger"],
+    "repos": [
+      { "name": "spartan-native", "description": "The theme, helm and desktop-ui packages, the web host and the host conformance suite.", "homepage": "https://spartan-native.github.io/spartan-native/", "language": "TypeScript" },
+      { "name": "harbor", "description": "Harbor Backup, the sample app: one Angular codebase in the browser, as a PWA and as a Wails desktop app.", "homepage": "https://spartan-native.github.io/harbor/", "language": "TypeScript" },
+      { "name": "host-wails", "description": "Host adapter for Go + Wails v3 that reads accent colour, theme, contrast and text size from the OS itself.", "homepage": "https://spartan-native.github.io/host-wails/", "language": "Go" },
+      { "name": "host-tauri", "description": "Host adapter for Rust + Tauri v2: OS settings, window actions, menus and file dialogs.", "homepage": "", "language": "Rust" },
+      { "name": "host-dotnet", "description": "Host adapter for .NET + Photino.NET: OS settings, window actions and file dialogs.", "homepage": "", "language": "C#" }
+    ]
+  }
 }

@@ -385,6 +385,43 @@ main { width: min(1240px, 100% - 40px); margin: 0 auto; }
 .mini p { margin: 0; color: var(--muted); font-size: 14px; flex: 1; }
 .mini .p-links .btn { padding: 8px 12px; font-size: 13px; }
 
+/* ---------- Spartan Native ---------- */
+.library {
+  --pa: #a77bff;
+  width: min(1240px, 100% - 40px); margin: 0 auto; padding: 100px 0 40px; border-top: 1px solid var(--line);
+  scroll-margin-top: 40px;
+}
+.lib-card {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: center;
+  padding: 44px; border-radius: 28px; isolation: isolate;
+  background: linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
+    linear-gradient(120deg, #5b9dff, #a77bff 45%, #ff6fb5 80%, #ffc15e) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 40px 120px -40px rgba(167, 123, 255, .55);
+}
+.lib-card::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(70% 90% at 100% 0%, rgba(91, 157, 255, .16), transparent 60%),
+    radial-gradient(60% 80% at 0% 100%, rgba(255, 111, 181, .12), transparent 60%);
+}
+.lib-card .p-icon { box-shadow: 0 10px 30px -10px #a77bff; }
+.lib-card .p-kicker { color: #c3a6ff; }
+.lib-card .p-links .btn-accent { background: linear-gradient(100deg, #5b9dff, #a77bff, #ff6fb5); }
+.lib-used { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 26px; font-size: 14px; color: var(--dim); }
+.lib-used span { margin-right: 4px; }
+.chip img { width: 18px; height: 18px; border-radius: 5px; }
+.chip-link { color: var(--text); transition: background .2s, border-color .2s; }
+.chip-link:hover { background: var(--glass-strong); border-color: rgba(255, 255, 255, .2); }
+.lib-shot { margin: 0; }
+.lib-shot img {
+  width: 100%; border-radius: 14px; border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 30px 80px -30px #000; transition: transform .5s var(--ease);
+}
+.lib-shot:hover img { transform: translateY(-4px) scale(1.01); }
+.lib-shot figcaption { margin-top: 12px; text-align: center; font-size: 13px; color: var(--dim); }
+.lib-sub { margin: 56px 0 20px; font-size: 20px; letter-spacing: -.01em; }
+.lib-sub a { color: #c3a6ff; }
+
 /* ---------- Footer ---------- */
 .footer { text-align: center; padding: 60px 20px 50px; color: var(--muted); font-size: 14px; }
 .footer p { margin: 4px 0; }
@@ -426,11 +463,14 @@ main { width: min(1240px, 100% - 40px); margin: 0 auto; }
   .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-top: 110px; min-height: 0; }
   .project, .project:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 80px 0; }
   .project:nth-child(even) .p-media { order: 0; }
+  .lib-card { grid-template-columns: minmax(0, 1fr); padding: 28px; gap: 32px; }
+  .lib-shot { order: -1; }
   .nav-links { display: none; }
   .nav-gh { margin-left: auto; }
 }
 @media (max-width: 560px) {
-  .hero, main, .more { width: calc(100% - 32px); }
+  .hero, main, .more, .library { width: calc(100% - 32px); }
+  .lib-card { padding: 20px; border-radius: 22px; }
   .lightbox { grid-template-columns: 1fr; }
   .lb-nav { position: absolute; bottom: 24px; }
   .lb-prev { left: 24px; }

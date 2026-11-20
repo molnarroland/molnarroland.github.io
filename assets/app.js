@@ -398,8 +398,80 @@
     }));
   }
 
-  function renderNavAndMarquee(projects) {
-    $("nav-links").innerHTML = projects.map((p) => `<a href="#${esc(p.name)}">${esc(p.name)}</a>`).join("");
+  /* ---------------- Spartan Native (closing section) ----------------
+     The UI theme library some of the apps are built with. Its repositories
+     are read live from the GitHub organisation, with showcase.json as fallback. */
+  async function libraryRepos(lib) {
+    const fallback = lib.repos.map((r) => ({ ...r, html_url: `https://github.com/${lib.org}/${r.name}` }));
+    try {
+      const list = await getJSON(`${API}/orgs/${lib.org}/repos?per_page=100&sort=pushed`);
+      const known = new Map(fallback.map((r) => [r.name.toLowerCase(), r]));
+      const live = list.filter((r) => !r.fork && !r.archived && !r.private).map((r) => ({
+        name: r.name,
+        description: r.description || known.get(r.name.toLowerCase())?.description || "",
+        homepage: r.homepage || (r.has_pages ? `https://${lib.org.toLowerCase()}.github.io/${r.name}/` : ""),
+        language: r.language,
+        stars: r.stargazers_count,
+        pushed_at: r.pushed_at,
+        html_url: r.html_url,
+      }));
+      return live.length ? live : fallback;
+    } catch (err) {
+      console.warn("Spartan-Native repos unavailable, using snapshot:", err);
+      return fallback;
+    }
+  }
+
+  function renderLibrary(lib, projects) {
+    const sec = $("spartan-native");
+    const users = lib.usedBy.map((n) => projects.find((p) => p.name === n)).filter(Boolean);
+    const [img, alt] = lib.image;
+    sec.hidden = false;
+    sec.innerHTML = `
+      <div class="lib-card reveal">
+        <div class="lib-copy">
+          <div class="p-head"><img class="p-icon" src="${esc(lib.logo)}" alt=""><div><div class="p-kicker">${esc(lib.kicker)}</div><h2 class="p-name">${esc(lib.name)}</h2></div></div>
+          <p class="p-tagline">${esc(lib.tagline)}</p>
+          <p class="p-desc">${esc(lib.description)}</p>
+          ${users.length ? `<div class="lib-used"><span>Powers the UI of</span>${users.map((p) => `<a class="chip" href="#${esc(p.name)}">${p.icon ? `<img src="${esc(p.icon)}" alt="">` : ""}${esc(p.name)}</a>`).join("")}</div>` : ""}
+          <div class="p-links">
+            <a class="btn btn-accent" href="${esc(lib.homepage)}">${ICON.home}Homepage</a>
+            <a class="btn" href="https://github.com/${esc(lib.org)}">${ICON.repo}GitHub organisation</a>
+            ${lib.npm ? `<a class="btn" href="${esc(lib.npm)}">npm</a>` : ""}
+          </div>
+        </div>
+        <figure class="lib-shot zoomable"><img src="${esc(img)}" alt="${esc(alt)}" loading="lazy"><figcaption>${esc(alt)}</figcaption></figure>
+      </div>
+      <h3 class="lib-sub reveal">Repositories in <a href="https://github.com/${esc(lib.org)}">${esc(lib.org)}</a></h3>
+      <div class="more-grid" id="lib-repos"></div>`;
+    sec.querySelector(".lib-shot").addEventListener("click", () => openLightbox([{ src: img, caption: alt, project: { name: lib.name } }], 0));
+
+    // Point the apps that use it back here.
+    users.forEach((p) => document.getElementById(p.name)?.querySelector(".chips")
+      ?.insertAdjacentHTML("beforeend", `<a class="chip chip-link" href="#spartan-native"><img src="${esc(lib.logo)}" alt="">Built with ${esc(lib.name)}</a>`));
+
+    libraryRepos(lib).then((repos) => {
+      $("lib-repos").innerHTML = repos.map((r) => `
+        <article class="mini reveal">
+          <h3>${esc(r.name)}</h3>
+          <p>${esc(r.description || "No description yet.")}</p>
+          <div class="chips">
+            ${r.language ? `<span class="chip"><i class="dot" style="background:${LANG_COLORS[r.language] || "#8b949e"}"></i>${esc(r.language)}</span>` : ""}
+            ${r.stars != null ? `<span class="chip">★ ${r.stars}</span>` : ""}
+            ${r.pushed_at ? `<span class="chip">Updated ${esc(ago(r.pushed_at))}</span>` : ""}
+          </div>
+          <div class="p-links">
+            ${r.homepage ? `<a class="btn btn-accent" href="${esc(r.homepage)}">${ICON.home}Homepage</a>` : ""}
+            <a class="btn" href="${esc(r.html_url)}">${ICON.repo}Source</a>
+          </div>
+        </article>`).join("");
+      reveals();
+    });
+  }
+
+  function renderNavAndMarquee(projects, lib) {
+    $("nav-links").innerHTML = projects.map((p) => `<a href="#${esc(p.name)}">${esc(p.name)}</a>`).join("")
+      + (lib ? `<a href="#spartan-native">${esc(lib.name)}</a>` : "");
     const items = projects.map((p) => `<span style="--c:${p.accent}">${esc(p.name)} — ${esc(p.tagline)}</span>`).join("");
     $("marquee").innerHTML = items + items; // doubled for a seamless loop
 
@@ -409,7 +481,7 @@
         if (e.isIntersecting) links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === `#${e.target.id}`));
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
-    document.querySelectorAll(".project").forEach((s) => spy.observe(s));
+    document.querySelectorAll(".project, .library:not([hidden])").forEach((s) => spy.observe(s));
   }
 
   /* ---------------- Effects ---------------- */
@@ -484,7 +556,8 @@
       renderHero(projects.filter((p) => p.shots.length));
       projects.forEach((p, i) => renderProject(p, byName.get(p.name.toLowerCase()), i));
       renderMore(repos.filter((r) => !featured.has(r.name.toLowerCase())));
-      renderNavAndMarquee(projects);
+      if (showcase.library) renderLibrary(showcase.library, projects);
+      renderNavAndMarquee(projects, showcase.library);
       $("source").textContent = source;
       reveals();
     })
