@@ -5,10 +5,13 @@ A showcase of the projects I've built and published on GitHub
 
 What it does:
 
-- **Hero slideshow** that crossfades between screenshots of every app, with a
-  slow zoom, a colour glow that follows the current app, and per-app progress bars.
-- **One section per project** with its own crossfading screenshot window,
-  clickable thumbnails, live GitHub stats and links to the **homepage**, the
+- **Hero carousel** that slides between every app, each shown in its own device
+  frame, with a colour glow that follows the current app and per-app progress bars.
+- **Device frames** per app (`frame` in `data/showcase.json`): a macOS window for
+  desktop apps, a TV for PlexVerse, and a menu-bar desktop for ClaudeProfileBar,
+  whose panel is a live HTML mock-up taken from the top of its homepage.
+- **One section per project** with its own sliding screenshot carousel (swipe on
+  touch screens), clickable thumbnails, live GitHub stats and links to the **homepage**, the
   **GitHub Pages** site and the **source**.
 - **Lightbox**: click any screenshot for a full-screen view (← → / Esc).
 - Scroll-reveal, 3D tilt, aurora background and a cursor spotlight. All motion

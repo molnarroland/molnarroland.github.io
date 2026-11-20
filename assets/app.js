@@ -52,67 +52,161 @@
     }
   }
 
-  /* ---------------- Crossfader ----------------
-     Stacks <img>s and fades between them. Images beyond the next one are
-     loaded lazily so the first paint stays light. */
-  class Fader {
-    constructor(el, slides, { interval, onChange, autoplay = true } = {}) {
-      this.el = el;
-      this.slides = slides;
-      this.interval = interval;
-      this.onChange = onChange;
+  /* ---------------- Carousel ----------------
+     Slides travel sideways: the incoming slide enters from the side it is
+     moving from while the outgoing one leaves the other way. A slide's markup
+     is rendered the first time it is needed (plus the one after it), so the
+     first paint stays light. Swipe left/right on touch screens. */
+  class Carousel {
+    constructor(el, slides, { interval, onChange, autoplay = true, render = shotHTML, start = 0 } = {}) {
+      Object.assign(this, { el, slides, interval, onChange, render });
       this.i = -1;
       this.timer = null;
       this.paused = !autoplay;
       this.visible = true;
-      el.innerHTML = slides.map((s) => `<img alt="${esc(s.caption)}" decoding="async">`).join("");
-      this.imgs = [...el.querySelectorAll("img")];
-      this.go(0);
+      el.classList.add("carousel");
+      el.innerHTML = slides.map(() => '<div class="slide"></div>').join("");
+      this.items = [...el.children];
+      swipe(el, (dir) => this.step(dir));
+      this.go(start);
     }
-    load(i) {
-      const img = this.imgs[i];
-      if (img && !img.src) img.src = this.slides[i].src;
-      return img;
+    ensure(i) {
+      const item = this.items[i];
+      if (!item.childElementCount) {
+        item.innerHTML = this.render(this.slides[i]);
+        fitDesks(item);
+      }
+      return item;
     }
-    go(i) {
+    go(i, dir) {
       const n = this.slides.length;
       i = ((i % n) + n) % n;
-      const img = this.load(i);
-      this.load(i + 1 < n ? i + 1 : 0);
-      const show = () => {
-        this.imgs.forEach((im, k) => {
-          if (k === i) {
-            // restart ken-burns animation
-            im.classList.remove("on"); void im.offsetWidth; im.classList.add("on");
-          } else im.classList.remove("on");
-        });
-      };
-      img.complete ? show() : img.addEventListener("load", show, { once: true });
-      this.i = i;
-      this.onChange?.(i, this.slides[i]);
+      if (i !== this.i) {
+        dir ??= i > this.i ? 1 : -1;
+        const incoming = this.ensure(i);
+        if (n > 1) this.ensure((i + 1) % n);
+        const outgoing = this.items[this.i];
+        // Park the incoming slide on its entry side without animating, then
+        // let both slides transition to their new places.
+        incoming.style.transition = "none";
+        incoming.style.transform = outgoing ? `translateX(${dir * 100}%)` : "none";
+        void incoming.offsetWidth;
+        incoming.style.transition = "";
+        incoming.style.transform = "";
+        if (outgoing) {
+          outgoing.classList.remove("on");
+          outgoing.style.transform = `translateX(${-dir * 100}%)`;
+        }
+        incoming.classList.add("on");
+        this.i = i;
+        this.onChange?.(i, this.slides[i]);
+      }
       this.schedule();
     }
     schedule() {
       clearTimeout(this.timer);
       if (this.paused || !this.visible || reduceMotion || this.slides.length < 2) return;
-      this.timer = setTimeout(() => this.go(this.i + 1), this.interval);
+      this.timer = setTimeout(() => this.step(1), this.interval);
     }
-    next() { this.go(this.i + 1); }
-    prev() { this.go(this.i - 1); }
+    step(dir) { this.go(this.i + dir, dir); }
+    next() { this.step(1); }
+    prev() { this.step(-1); }
     setPaused(p) { this.paused = p; this.schedule(); }
     setVisible(v) { this.visible = v; this.schedule(); }
   }
 
-  // Pause any fader that is scrolled out of view or when the tab is hidden.
-  const faders = new Map();
+  function swipe(el, cb) {
+    let x0 = null;
+    el.addEventListener("pointerdown", (e) => { x0 = e.clientX; });
+    el.addEventListener("pointercancel", () => { x0 = null; });
+    el.addEventListener("pointerup", (e) => {
+      if (x0 === null) return;
+      const dx = e.clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) < 40) return;
+      cb(dx < 0 ? 1 : -1);
+      el.dataset.swiped = "1"; // swallow the click that follows a swipe
+      setTimeout(() => delete el.dataset.swiped, 0);
+    });
+  }
+  const onTap = (el, fn) => el.addEventListener("click", (e) => { if (!el.dataset.swiped) fn(e); });
+
+  // Pause any carousel that is scrolled out of view or when the tab is hidden.
+  const carousels = new Map();
   const viewObserver = new IntersectionObserver((entries) => {
-    entries.forEach((e) => faders.get(e.target)?.setVisible(e.isIntersecting));
+    entries.forEach((e) => carousels.get(e.target)?.setVisible(e.isIntersecting));
   }, { threshold: 0.15 });
-  function watch(el, fader) { faders.set(el, fader); viewObserver.observe(el); }
+  function watch(el, carousel) { carousels.set(el, carousel); viewObserver.observe(el); }
   document.addEventListener("visibilitychange", () => {
-    faders.forEach((f, el) => f.setVisible(!document.hidden && isOnScreen(el)));
+    carousels.forEach((c, el) => c.setVisible(!document.hidden && isOnScreen(el)));
   });
   const isOnScreen = (el) => { const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
+
+  /* ---------------- Device frames ----------------
+     window  — desktop app: macOS window chrome, 16:10 screenshots
+     tv      — TV app: bezel and stand, 16:9 screenshots
+     menubar — menu bar app: a desktop with a live HTML mock-up of the panel */
+  const DESK_W = 540; // design width of the menubar scene; scaled to fit
+  const deskObserver = new ResizeObserver((entries) => entries.forEach((e) => {
+    e.target.style.setProperty("--k", e.contentRect.width / DESK_W);
+  }));
+  const fitDesks = (root) => root.querySelectorAll(".desk").forEach((d) => deskObserver.observe(d));
+
+  function frame(p, inner, title = p.name) {
+    if (p.frame === "tv") {
+      return `<div class="tv"><div class="tv-bezel"><div class="tv-screen">${inner}</div></div><div class="tv-stand" aria-hidden="true"></div></div>`;
+    }
+    if (p.frame === "menubar") return `<div class="desk">${inner}</div>`;
+    return `<div class="window"><div class="window-bar"><span class="lights"><i></i><i></i><i></i></span><span class="window-title">${esc(title)}</span></div><div class="screen">${inner}</div></div>`;
+  }
+
+  function shotHTML(s) {
+    if (s.component) return COMPONENTS[s.component]?.() ?? "";
+    return `<img src="${esc(s.src)}" alt="${esc(s.caption)}" draggable="false" decoding="async">`;
+  }
+  const isImage = (s) => !s.component;
+
+  // Live HTML stand-ins for apps that are best shown as UI rather than a screenshot.
+  // Ported from the hero of https://molnarroland.github.io/ClaudeProfileBar/
+  const COMPONENTS = {
+    "profile-panel": () => {
+      const bar = (label, p, w, hot) => `
+        <div class="bar">
+          <div class="nums"><span class="pct p">${p[0]}%</span><span class="label">${label}</span><span class="pct w${hot ? " hot" : ""}">${w[0]}%</span></div>
+          <div class="track"><div class="fill p" style="width:${p[0] / 2}%"></div><div class="fill w" style="width:${w[0] / 2}%"></div></div>
+          <div class="resets"><span>${p[1]}</span><span>${w[1]}</span></div>
+        </div>`;
+      return `
+      <div class="cpb desk-inner" role="img" aria-label="Claude Profile Bar's menu bar panel showing Personal and Work usage side by side">
+        <div class="menubar">
+          <span>Wi‑Fi</span>
+          <span class="item"><svg><use href="#i-person"/></svg>42%</span>
+          <span>Fri 9:41</span>
+        </div>
+        <div class="panel">
+          <div class="p-head">
+            <div class="side">
+              <span class="pill personal active"><svg><use href="#i-person"/></svg>Personal<svg class="tick"><use href="#i-check"/></svg></span>
+              <svg class="chev"><use href="#i-chevrons"/></svg>
+            </div>
+            <div class="side"><span class="pill work">Work<svg><use href="#i-briefcase"/></svg></span></div>
+          </div>
+          ${bar("SESSION", [42, "in 2 hours"], [7, "in 4 hours"])}
+          ${bar("WEEK", [18, "in 3 days"], [81, "in 5 days"])}
+          ${bar("WEEK, OPUS", [64, "in 3 days"], [97, "in 5 days"], true)}
+          <div class="p-foot">
+            <svg><use href="#i-gear"/></svg>
+            <span class="seg"><span class="on">Both</span><span><svg><use href="#i-window"/></svg></span><span><svg><use href="#i-terminal"/></svg></span></span>
+            <span class="right"><svg><use href="#i-refresh"/></svg><span class="quit">Quit</span></span>
+          </div>
+        </div>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--personal)"></i>Personal fills left</span>
+          <span><i class="dot" style="background:var(--work)"></i>Work fills right</span>
+        </div>
+      </div>`;
+    },
+  };
 
   /* ---------------- Rendering ---------------- */
   function pagesUrl(r) {
@@ -179,28 +273,31 @@
   }
 
   function renderHero(projects) {
-    // Interleave screenshots so consecutive slides come from different apps.
+    // Interleave shots so consecutive slides come from different apps.
     const slides = [];
     const max = Math.max(...projects.map((p) => p.shots.length));
     for (let k = 0; k < max; k++) {
       projects.forEach((p) => { if (p.shots[k]) slides.push({ ...p.shots[k], project: p }); });
     }
-    if (!slides.length) { $("hero-stage").hidden = true; return; }
-
     const stage = $("hero-stage");
+    if (!slides.length) { stage.hidden = true; return; }
+
     stage.style.setProperty("--dur", `${HERO_MS}ms`);
     const bars = $("hero-bars");
     // One progress bar per project, active while that project is showing.
     bars.innerHTML = projects.map((p) => `<button style="--bar-color:${p.accent}" aria-label="Show ${esc(p.name)}"></button>`).join("");
     const barBtns = [...bars.children];
+    const view = $("hero-carousel");
 
     let lastProject = null;
-    const fader = new Fader($("hero-fader"), slides, {
+    const carousel = new Carousel(view, slides, {
       interval: HERO_MS,
+      // Each slide is a whole device, so apps keep their own frame as they pass by.
+      render: (s) => `<div class="scene" style="--pa:${s.project.accent}">${frame(s.project, shotHTML(s), `${s.project.name} — ${s.caption}`)}</div>`,
       onChange: (i, s) => {
         const p = s.project;
         stage.style.setProperty("--stage-accent", p.accent);
-        $("hero-title").textContent = `${p.name} — ${s.caption}`;
+        view.classList.toggle("zoomable", isImage(s));
         const pi = projects.indexOf(p);
         barBtns.forEach((b, k) => {
           b.classList.remove("active");
@@ -215,14 +312,17 @@
       },
     });
     barBtns.forEach((b, k) => b.addEventListener("click", () => {
-      fader.go(slides.findIndex((s) => s.project === projects[k]));
+      carousel.go(slides.findIndex((s) => s.project === projects[k]));
     }));
-    $("hero-fader").classList.add("zoomable");
-    $("hero-fader").addEventListener("click", () => openLightbox(slides, fader.i));
-    stage.addEventListener("mouseenter", () => { fader.setPaused(true); stage.classList.add("paused"); });
-    stage.addEventListener("mouseleave", () => { fader.setPaused(false); stage.classList.remove("paused"); });
-    watch($("hero-fader"), fader);
-    tilt($("hero-window"), stage);
+    const images = slides.filter(isImage);
+    onTap(view, () => {
+      const s = slides[carousel.i];
+      if (isImage(s)) openLightbox(images, images.indexOf(s));
+    });
+    stage.addEventListener("mouseenter", () => { carousel.setPaused(true); stage.classList.add("paused"); });
+    stage.addEventListener("mouseleave", () => { carousel.setPaused(false); stage.classList.remove("paused"); });
+    watch(view, carousel);
+    tilt($("hero-viewport"), stage);
   }
 
   function renderProject(p, r, index) {
@@ -234,13 +334,13 @@
     const iconHtml = p.icon
       ? `<img class="p-icon" src="${esc(p.icon)}" alt="" loading="lazy">`
       : `<div class="p-icon fallback">${esc(p.name[0])}</div>`;
+    const thumbs = p.shots.length > 1
+      ? `<div class="p-thumbs ${esc(p.frame || "window")}">${p.shots.map((s) => `<button aria-label="${esc(s.caption)}">${isImage(s) ? `<img src="${esc(s.src)}" alt="" loading="lazy">` : esc(s.caption)}</button>`).join("")}</div>`
+      : "";
     sec.innerHTML = `
       <div class="p-media reveal">
-        <div class="window">
-          <div class="window-bar"><span class="lights"><i></i><i></i><i></i></span><span class="window-title">${esc(p.name)}</span></div>
-          <div class="fader kenburns zoomable"></div>
-        </div>
-        <div class="p-thumbs">${p.shots.map((s, k) => `<button aria-label="${esc(s.caption)}"><img src="${esc(s.src)}" alt="" loading="lazy"></button>`).join("")}</div>
+        <div class="device">${frame(p, '<div class="p-carousel"></div>')}</div>
+        ${thumbs}
       </div>
       <div class="p-copy reveal">
         <div class="p-head">${iconHtml}<div><div class="p-kicker">${String(index + 1).padStart(2, "0")} · ${esc(p.platform || r.language || "Project")}</div><h2 class="p-name">${esc(r.name)}</h2></div></div>
@@ -252,25 +352,33 @@
     $("projects").appendChild(sec);
 
     const media = sec.querySelector(".p-media");
-    const faderEl = sec.querySelector(".fader");
-    const titleEl = sec.querySelector(".window-title");
-    const thumbs = [...sec.querySelectorAll(".p-thumbs button")];
     if (!p.shots.length) { media.remove(); return; }
-    const fader = new Fader(faderEl, p.shots, {
+    const view = sec.querySelector(".p-carousel");
+    const titleEl = sec.querySelector(".window-title");
+    const thumbBtns = [...sec.querySelectorAll(".p-thumbs button")];
+    fitDesks(sec);
+    const carousel = new Carousel(view, p.shots, {
       interval: PROJECT_MS,
       onChange: (i, s) => {
-        titleEl.textContent = `${p.name} — ${s.caption}`;
-        thumbs.forEach((t, k) => t.classList.toggle("on", k === i));
-        // restart the progress underline
-        const on = thumbs[i]; on.classList.remove("on"); void on.offsetWidth; on.classList.add("on");
+        if (titleEl) titleEl.textContent = `${p.name} — ${s.caption}`;
+        view.classList.toggle("zoomable", isImage(s));
+        const on = thumbBtns[i];
+        if (!on) return;
+        thumbBtns.forEach((t) => t.classList.remove("on"));
+        void on.offsetWidth; // restart the progress underline
+        on.classList.add("on");
       },
     });
-    thumbs.forEach((t, k) => t.addEventListener("click", () => fader.go(k)));
-    faderEl.addEventListener("click", () => openLightbox(p.shots.map((s) => ({ ...s, project: p })), fader.i));
-    media.addEventListener("mouseenter", () => { fader.setPaused(true); media.classList.add("paused"); });
-    media.addEventListener("mouseleave", () => { fader.setPaused(false); media.classList.remove("paused"); });
-    watch(faderEl, fader);
-    tilt(sec.querySelector(".window"), media, 5);
+    thumbBtns.forEach((t, k) => t.addEventListener("click", () => carousel.go(k)));
+    const images = p.shots.filter(isImage).map((s) => ({ ...s, project: p }));
+    onTap(view, () => {
+      const k = p.shots.filter(isImage).indexOf(p.shots[carousel.i]);
+      if (k >= 0) openLightbox(images, k);
+    });
+    media.addEventListener("mouseenter", () => { carousel.setPaused(true); media.classList.add("paused"); });
+    media.addEventListener("mouseleave", () => { carousel.setPaused(false); media.classList.remove("paused"); });
+    watch(view, carousel);
+    tilt(sec.querySelector(".device"), media, 5);
   }
 
   function renderMore(repos) {
@@ -334,11 +442,11 @@
     const box = $("lightbox");
     box.hidden = false;
     document.body.style.overflow = "hidden";
-    lb = new Fader($("lb-fader"), slides, {
+    lb = new Carousel($("lb-carousel"), slides, {
       autoplay: false,
+      start,
       onChange: (i, s) => { $("lb-caption").textContent = `${s.project?.name ?? ""} — ${s.caption}  ·  ${i + 1} / ${slides.length}`; },
     });
-    lb.go(start);
     $("lb-close").focus();
   }
   function closeLightbox() {
@@ -367,7 +475,9 @@
       const byName = new Map(repos.map((r) => [r.name.toLowerCase(), r]));
       const projects = showcase.projects
         .filter((p) => byName.has(p.name.toLowerCase()))
-        .map((p) => ({ ...p, shots: (p.shots || []).map(([src, caption]) => ({ src, caption })) }));
+        // "component:<name>" renders a live HTML mock-up instead of a screenshot.
+        .map((p) => ({ ...p, shots: (p.shots || []).map(([src, caption]) =>
+          src.startsWith("component:") ? { component: src.slice(10), caption } : { src, caption }) }));
       const featured = new Set(projects.map((p) => p.name.toLowerCase()));
 
       renderProfile(profile, repos);

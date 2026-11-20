@@ -1,5 +1,5 @@
 {
-  "_comment": "Curated presentation for each project. Name must match the GitHub repo name. Description, language, stars and links come live from the GitHub API. Repos not listed here still appear under 'More on GitHub'.",
+  "_comment": "Curated presentation for each project. Name must match the GitHub repo name. Description, language, stars and links come live from the GitHub API. Repos not listed here still appear under 'More on GitHub'. frame: window (default), tv or menubar. A shot of \"component:<name>\" renders a live HTML mock-up from COMPONENTS in app.js.",
   "projects": [
     {
       "name": "Claudealyzer",
@@ -22,6 +22,7 @@
       "name": "PlexVerse",
       "tagline": "All your media servers, one library, one remote.",
       "platform": "Android TV",
+      "frame": "tv",
       "accent": "#f5b82e",
       "icon": "assets/shots/PlexVerse/icon.svg",
       "shots": [
@@ -54,12 +55,11 @@
       "name": "ClaudeProfileBar",
       "tagline": "All your Claude accounts, one click apart.",
       "platform": "macOS menu bar",
+      "frame": "menubar",
       "accent": "#6aa5ff",
       "icon": "assets/shots/ClaudeProfileBar/icon.png",
       "shots": [
-        ["assets/shots/ClaudeProfileBar/site-1.jpg", "Usage side by side"],
-        ["assets/shots/ClaudeProfileBar/site-2.jpg", "Features"],
-        ["assets/shots/ClaudeProfileBar/site-3.jpg", "How it works"]
+        ["component:profile-panel", "Menu bar panel"]
       ]
     }
   ]
