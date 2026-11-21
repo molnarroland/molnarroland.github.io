@@ -77,8 +77,54 @@
 
   <section class="library" id="spartan-native" hidden></section>
 
+  <section class="wip-teaser" id="in-progress">
+    <div class="band-head reveal">
+      <p class="eyebrow"><span class="pulse"></span> Work in progress</p>
+      <h2 class="section-title">In progress</h2>
+      <p class="band-lede">What I'm building right now. These aren't published as source.</p>
+    </div>
+
+    <div class="feature" id="mindheim-card" hidden></div>
+
+    <div class="lib-card dubai-card reveal" id="dubai">
+      <div class="lib-copy">
+        <div class="p-head">
+          <span class="dubai-logos"><img class="p-icon" src="assets/shots/DubAI/fansub.svg" alt=""><img class="p-icon" src="assets/shots/DubAI/gamedub.svg" alt=""></span>
+          <div><div class="p-kicker">2 macOS apps · local AI</div><h2 class="p-name">DubAI</h2></div>
+        </div>
+        <p class="p-tagline">Your language deserves a dub too.</p>
+        <p class="p-desc"><b>FanSUB</b> turns a series episode into a finished fan dub on one Mac. It separates the voices from the music, sorts every line by character, lets the cast record from home in any browser, and AI voices that run on the Mac speak the lines nobody has recorded yet. <b>GameDUB</b>, its sister app, opens a game's folder, finds the voice files and text tables, and times every spoken line, ready to dub.</p>
+        <div class="chips">
+          <span class="chip">macOS 26 · Apple silicon</span><span class="chip">Swift 6</span><span class="chip">Runs on device</span><span class="chip">Browser recording booth</span>
+        </div>
+        <div class="p-links">
+          <a class="btn btn-accent" href="dubai/">Explore DubAI <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"/></svg></a>
+          <a class="btn" href="dubai/#gamedub">GameDUB</a>
+          <a class="btn" href="dubai/scenarios.html">Who it's for</a>
+        </div>
+      </div>
+      <div class="dubai-shots">
+        <a class="dubai-shot fs" href="dubai/#how"><img src="dubai/img/fs-assign.webp" alt="FanSUB's Assign lines screen: the episode playing, the current line and the character who says it" loading="lazy" width="1920" height="1200"><span>FanSUB · Assign lines</span></a>
+        <a class="dubai-shot gd" href="dubai/#gamedub"><img src="dubai/img/gd-lines.webp" alt="GameDUB's Lines screen: every spoken line of a game with its character, text, length and timing" loading="lazy" width="1920" height="1200"><span>GameDUB · Lines</span></a>
+      </div>
+    </div>
+
+    <a class="wip-card reveal" href="in-progress.html">
+      <div>
+        <h2>More on my desk</h2>
+        <p>A 3D game about our dog, a LEGO sorting app with native Android and iPhone versions, and a pallet planner for a warehouse.</p>
+      </div>
+      <div class="wip-thumbs" aria-hidden="true">
+        <img src="assets/shots/KajsziSzimulator/icon.png" alt="">
+        <img src="assets/shots/BrickSplit/icon.png" alt="">
+        <img src="assets/shots/RaklapRendezo/icon.svg" alt="">
+      </div>
+      <span class="btn btn-glow">See the other projects <span aria-hidden="true">→</span></span>
+    </a>
+  </section>
+
   <footer class="footer">
-    <p><span id="source"></span> · <a href="https://github.com/molnarroland?tab=repositories">All repositories</a></p>
+    <p><span id="source"></span> · <a href="https://github.com/molnarroland?tab=repositories">All repositories</a> · <a href="mindheim.html">Mindheim</a> · <a href="dubai/">DubAI</a> · <a href="in-progress.html">In progress</a></p>
     <p class="muted">© <span id="year"></span> Roland Molnár</p>
   </footer>
 
@@ -92,6 +138,7 @@
     <button class="lb-nav lb-next" id="lb-next" aria-label="Next screenshot">›</button>
   </div>
 
+  <script src="assets/core.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>

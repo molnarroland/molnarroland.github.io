@@ -1,0 +1,154 @@
+{
+  "_comment": "Content of mindheim.html, plus 'card': the Mindheim card in the home page's In progress section. Each app is its own PWA on a subdomain of mindheim.app. Screenshots are 1440×900 captures of the live apps. 'next' lists apps that are built but not yet published.",
+  "site": "https://mindheim.app",
+  "logo": "assets/shots/Mindheim/mindheim.svg",
+  "landing": ["assets/shots/Mindheim/landing.jpg", "mindheim.app"],
+  "card": {
+    "kicker": "7 learning apps for kids",
+    "tagline": "Free learning apps for grades 1–8 that live on your device.",
+    "description": "Maths, geometry, physics, algebra, spelling, chemistry and electricity, each explained step by step in its own small app. They install from mindheim.app, work offline, need no account, and keep everything on the device.",
+    "image": ["assets/shots/Mindheim/landing.jpg", "mindheim.app"]
+  },
+  "apps": [
+    {
+      "name": "mathor",
+      "title": "MaThor",
+      "subject": "Arithmetic",
+      "grades": "1–8",
+      "accent": "#3b82f6",
+      "icon": "assets/shots/Mindheim/mathor.svg",
+      "url": "https://mathor.mindheim.app",
+      "tagline": "Arithmetic the way it's written in the exercise book.",
+      "description": "Type a problem as you'd write it and MaThor solves it one step at a time, with the written method the child's school uses: carries, borrows, long multiplication and division. Do it yourself, get a hint at each step, or watch the whole thing solved.",
+      "highlights": ["Three modes: I'll do it, Help me (one step at a time) and Show me", "Pick the written method your teacher uses; it's remembered per operation", "Homework check: type your answer and MaThor says if it's right", "10 topics from place value to percent, each with a teaching aid: number line, base-ten blocks, bar model, fraction bars…"],
+      "shots": [
+        ["assets/shots/Mindheim/mathor-solve.jpg", "347 + 285, step by step"],
+        ["assets/shots/Mindheim/mathor-home.jpg", "Topics by grade"]
+      ]
+    },
+    {
+      "name": "geodin",
+      "title": "GeOdin",
+      "subject": "Geometry",
+      "grades": "1–8",
+      "beta": true,
+      "accent": "#4f8fd6",
+      "icon": "assets/shots/Mindheim/geodin.svg",
+      "url": "https://geodin.mindheim.app",
+      "tagline": "Draw it. Measure it. Understand every step.",
+      "description": "Pick a shape, type its measurements, and GeOdin draws it to scale on dotted paper, then shows, like a teacher at the board, how to find the area, the perimeter or a missing angle. It checks the answer and its unit, and names the typical slip when the answer is wrong.",
+      "highlights": ["Live, to-scale drawings; corners can be dragged in the symmetry and moves problems", "Unit checks with hints for the usual mistakes, like reading the other protractor scale", "Explains measurements that can't be drawn, like a triangle whose sides don't close", "12 topics: shapes, angles, area, circles, coordinates, volume, similarity…"],
+      "shots": [
+        ["assets/shots/Mindheim/geodin-solve.jpg", "Area of a triangle"],
+        ["assets/shots/Mindheim/geodin-home.jpg", "Topics by grade"]
+      ]
+    },
+    {
+      "name": "lokinetic",
+      "title": "LoKinetic",
+      "subject": "Physics",
+      "grades": "5–8",
+      "beta": true,
+      "accent": "#22c55e",
+      "icon": "assets/shots/Mindheim/lokinetic.svg",
+      "url": "https://lokinetic.mindheim.app",
+      "tagline": "Physics step by step: formulas, units, pictures and graphs.",
+      "description": "Pick a formula, type the two values you know, and either solve it alone (the answer and its unit are checked) or watch the solution step by step, with a scene or graph for each step and a formula triangle that covers what you're looking for.",
+      "highlights": ["13 topics: speed, forces, density, pressure, energy, heat, electricity, light, sound, momentum…", "A picture or graph for every step of the solution", "Formula triangle that covers the wanted quantity", "Unit ladder converter: km/h ↔ m/s, length, mass, volume, time"],
+      "shots": [
+        ["assets/shots/Mindheim/lokinetic-solve.jpg", "Find the speed"],
+        ["assets/shots/Mindheim/lokinetic-home.jpg", "Topics by grade"]
+      ]
+    },
+    {
+      "name": "valgebra",
+      "title": "VAlgebra",
+      "subject": "Equations",
+      "grades": "5–8",
+      "beta": true,
+      "accent": "#8b5cf6",
+      "icon": "assets/shots/Mindheim/valgebra.svg",
+      "url": "https://valgebra.mindheim.app",
+      "tagline": "Find x. Keep the balance.",
+      "description": "The child types an equation and solves it one move at a time on a balance scale: every move is done to both sides, and the app says when a move helps, when it only makes fractions, and when the scale tips over. The working is written down like in an exercise book, with a final check at the end.",
+      "highlights": ["x's as purple tiles, numbers as tens and ones, negatives in red", "Every move judged: nice move, allowed but not closer, now there are fractions", "Exact fractions throughout: x/3 · 3 is exactly x", "12 topics, from letters and expressions to functions and graphs"],
+      "shots": [
+        ["assets/shots/Mindheim/valgebra-solve.jpg", "−x + 4 = 2x − 8 on the balance"],
+        ["assets/shots/Mindheim/valgebra-home.jpg", "Topics by grade"]
+      ]
+    },
+    {
+      "name": "runespell",
+      "title": "RuneSpell",
+      "subject": "Hungarian spelling",
+      "grades": "1–8",
+      "beta": true,
+      "accent": "#14b8a6",
+      "icon": "assets/shots/Mindheim/runespell.svg",
+      "url": "https://runespell.mindheim.app",
+      "tagline": "Minden betű a helyén. Every letter in its place.",
+      "description": "Hungarian spelling practice that shows why a word is spelled the way it is. A wrong pick explains the rule behind the word, dictations are read aloud and checked word by word, and sentences are taken apart with coloured underlines, the way it's done at school. The app is Hungarian only.",
+      "highlights": ["11 topics: j or ly, long and short sounds, compound words, punctuation, names…", "Dictation: the browser reads a sentence aloud, you type it, it's marked word by word", "Hyphenation: tap where the word splits, or type any word to see it split", "Sentence analysis with coloured pens for subject, predicate, object…"],
+      "shots": [
+        ["assets/shots/Mindheim/runespell-ly.jpg", "j vagy ly?"],
+        ["assets/shots/Mindheim/runespell-home.jpg", "Topics by grade"]
+      ]
+    },
+    {
+      "name": "alchemimir",
+      "title": "AlcheMimir",
+      "subject": "Chemistry",
+      "grades": "6–8",
+      "beta": true,
+      "accent": "#e0559f",
+      "icon": "assets/shots/Mindheim/alchemimir.svg",
+      "url": "https://alchemimir.mindheim.app",
+      "tagline": "Chemistry you can see. Mix it, heat it, see what happens.",
+      "description": "Heat a substance and watch its particles melt and boil along the heating curve, build an atom from protons, neutrons and electrons, put school-lab substances in a beaker and see the balanced equation, or level out an equation's scales one coefficient at a time.",
+      "highlights": ["Reaction lab with balanced equations", "Periodic table of all 118 elements; pick one to see its atom", "Balancing equations: type Fe + O2 -> Fe2O3 and level the scales", "Mixtures, solutions, acids and bases with a red cabbage indicator"],
+      "shots": [
+        ["assets/shots/Mindheim/alchemimir-states.jpg", "States of matter"],
+        ["assets/shots/Mindheim/alchemimir-table.jpg", "Periodic table"],
+        ["assets/shots/Mindheim/alchemimir-home.jpg", "Topics by grade"]
+      ]
+    },
+    {
+      "name": "voltyr",
+      "title": "VolTyr",
+      "subject": "Electricity",
+      "grades": "4–8",
+      "beta": true,
+      "accent": "#f08a24",
+      "icon": "assets/shots/Mindheim/voltyr.svg",
+      "url": "https://voltyr.mindheim.app",
+      "tagline": "Build it, switch it on. Light it up.",
+      "description": "Electricity taught by building: wire batteries, lamps and switches on a breadboard, close the loop, unscrew a lamp, put a meter in the wrong place and see what happens. A circuit solver checks every challenge's goal.",
+      "highlights": ["Challenges for simple, series and parallel circuits, switches, ammeters and voltmeters", "Switch between a picture view and circuit symbols", "Ohm's law and power, down to what a month of appliances costs", "Electrical safety scenes and a fuse that blows"],
+      "shots": [
+        ["assets/shots/Mindheim/voltyr-circuit.jpg", "Light the lamp"],
+        ["assets/shots/Mindheim/voltyr-parallel.jpg", "Parallel circuits"],
+        ["assets/shots/Mindheim/voltyr-home.jpg", "Topics by grade"]
+      ]
+    }
+  ],
+  "next": [
+    {
+      "title": "Draupnir",
+      "subject": "Money",
+      "grades": "1–8",
+      "accent": "#f5b82e",
+      "icon": "assets/shots/Mindheim/draupnir.svg",
+      "tagline": "Count it, save it. Watch it grow.",
+      "description": "Pocket money, saving jars and goals turned into small, friendly lessons: coins and change, needs and wants, budgets, comparing prices, bank card safety, discounts and interest. All ten topics are built; it's the next app to go live."
+    }
+  ],
+  "shared": [
+    ["Works offline", "Each app installs from mindheim.app on Android, iOS or desktop, and keeps working without a connection."],
+    ["No account, no tracking", "Progress and history stay on the device. Nothing is sent anywhere."],
+    ["Do it, or watch it", "Every solver has an I'll do it mode that checks your answer and a Show me mode that plays the solution step by step."],
+    ["Practice sheets as a link", "Parents and teachers build a sheet of up to 15 problems and share it as one link. The whole sheet is in the URL, so no server is involved."],
+    ["Digital board mode", "On a classroom board or a landscape tablet, problems sit on a board as cards and are solved in a side panel."],
+    ["Six languages", "English, Hungarian, German, Spanish, French and Romanian, with the maths notation each country uses."]
+  ],
+  "stack": ["Angular 22", "Tailwind CSS 4", "spartan-ng", "Transloco", "Dexie (IndexedDB)", "Service worker", "Shared engine library", "Vitest · Playwright"]
+}

@@ -1,0 +1,102 @@
+{
+  "_comment": "Projects on the 'In progress' page (in-progress.html). Not on GitHub, so everything here is curated. devices: one or more device frames (window, tv, android, ios), each with its own screenshots. Mindheim is on the home page and has its own page (data/mindheim.json).",
+  "platforms": ["Web", "Android", "iOS"],
+  "projects": [
+    {
+      "name": "kajszi",
+      "title": "Kajszi szimulátor",
+      "platform": "Web game · PWA",
+      "accent": "#e9a44a",
+      "icon": "assets/shots/KajsziSzimulator/icon.png",
+      "tagline": "A walk in the woods, thirty centimetres off the ground.",
+      "description": "A 3D forest walk seen through the eyes of Kajszi, our apricot maltipoo. You explore, sniff out hidden mushrooms, find squirrels and forest sounds, visit Grandpa and the cabin, and play with other dogs on a shared walk. It's made for the family first, small children included, so it plays fine with icons and no reading.",
+      "highlights": [
+        ["Dog vision", "Blue–yellow colour vision like a real dog's, softer edges, and a faint glow around anything that moves."],
+        ["Scent view", "Hold E and the world fades out while scents light up: mushrooms, animal tracks, the family, other dogs."],
+        ["Shared walks", "Up to 8 dogs in a room. Seven minigames start when every dog in the circle barks, including tug of war, a bone heist and dog football."],
+        ["Phone first", "Twin joysticks and icon buttons in landscape, a kid mode, and it installs as an app that works offline."]
+      ],
+      "stack": ["TypeScript", "Three.js + custom GLSL", "C → WebAssembly", "Go WebSocket server", "Hungarian · English"],
+      "devices": [
+        {
+          "frame": "window",
+          "shots": [
+            ["assets/shots/KajsziSzimulator/menu.jpg", "Main menu"],
+            ["assets/shots/KajsziSzimulator/outside.jpg", "Third-person view"],
+            ["assets/shots/KajsziSzimulator/walk.jpg", "Through Kajszi's eyes"],
+            ["assets/shots/KajsziSzimulator/scent.jpg", "Scent view"],
+            ["assets/shots/KajsziSzimulator/dog-vision.jpg", "Dog vision"]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bricksplit",
+      "title": "BrickSplit",
+      "platform": "Android · iOS",
+      "accent": "#f4a83a",
+      "icon": "assets/shots/BrickSplit/icon.png",
+      "tagline": "Sort the pile. Together.",
+      "description": "Sorting a big LEGO® set's bricks as a group. Pick a set from your Rebrickable collection and BrickSplit deals its colours out to everyone in the room. Each person sees one brick at a time, and progress syncs live between the phones over the local Wi‑Fi, with no server and no internet needed during the session. There's a native app for each platform, and they talk to each other: an iPhone can host while Android phones join, and the other way round.",
+      "highlights": [
+        ["Join in seconds", "Phones find the session on the Wi‑Fi, or scan the host's QR code, or type a 6-letter code. Helpers need no account."],
+        ["One brick at a time", "Your line is grouped by colour. Tap Found one per brick, Undo if you miscounted, drag to reorder."],
+        ["Even it out", "The Team screen shows everyone's progress live and suggests handing a colour from the biggest pile to the smallest."],
+        ["Try it without an account", "Two complete real sets are built in, so hosting, joining and syncing all work in demo mode."]
+      ],
+      "stack": ["Kotlin · Jetpack Compose", "Swift 6 · SwiftUI", "Rebrickable API", "DNS-SD / Bonjour", "English · Hungarian"],
+      "devices": [
+        {
+          "frame": "android",
+          "label": "Android",
+          "shots": [
+            ["assets/shots/BrickSplit/sort.png", "Your bricks"],
+            ["assets/shots/BrickSplit/lobby.png", "Session lobby"],
+            ["assets/shots/BrickSplit/team.png", "Team progress"],
+            ["assets/shots/BrickSplit/sets.png", "Your sets"],
+            ["assets/shots/BrickSplit/part-viewer.png", "360° part viewer"],
+            ["assets/shots/BrickSplit/join.png", "Join a sort"],
+            ["assets/shots/BrickSplit/sort-dark.png", "Dark theme"]
+          ]
+        },
+        {
+          "frame": "ios",
+          "label": "iOS",
+          "shots": [
+            ["assets/shots/BrickSplit/ios/lobby.jpg", "Session lobby"],
+            ["assets/shots/BrickSplit/ios/sort.jpg", "Your bricks"],
+            ["assets/shots/BrickSplit/ios/sort-dark.jpg", "Dark theme"],
+            ["assets/shots/BrickSplit/ios/settings.jpg", "Settings"]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "raklap",
+      "title": "Raklap Rendező",
+      "platform": "Web · internal tool",
+      "accent": "#6f9bd8",
+      "icon": "assets/shots/RaklapRendezo/icon.svg",
+      "tagline": "From an Excel paste to a pallet plan in seconds.",
+      "description": "A pallet planner for a warehouse. Paste the rows of a packing list from Excel (sizes, quantities, weights) and it works out how the boxes go onto 120 × 80 cm pallets, layer by layer. The plan is made in the office and printed for the packers on the floor, who stack the pallet from it without having to work anything out themselves.",
+      "highlights": [
+        ["Paste and go", "Columns are recognised by their header name, in any order. No setup, no account, no typing beyond the paste."],
+        ["Real stacking rules", "Max height and weight, even layers, at least 75% support under each box, heavy boxes never on light ones."],
+        ["Layer by layer", "Step through the layers in 3D or from the top; tap a row in the loading list and that box blinks."],
+        ["Made for the intranet", "One self-contained HTML file. It loads nothing from outside, and the pasted data never leaves the browser."]
+      ],
+      "stack": ["Angular 22", "Spartan NG · Tailwind 4", "three.js", "Web Worker planner", "Hungarian"],
+      "devices": [
+        {
+          "frame": "window",
+          "shots": [
+            ["assets/shots/RaklapRendezo/plan-3d.jpg", "Packing plan · 3D"],
+            ["assets/shots/RaklapRendezo/plan-top.jpg", "Packing plan · top view"],
+            ["assets/shots/RaklapRendezo/summary.jpg", "Summary"],
+            ["assets/shots/RaklapRendezo/input.jpg", "Paste and settings"]
+          ]
+        }
+      ]
+    }
+  ]
+}

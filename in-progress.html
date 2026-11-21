@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roland Molnár · In progress</title>
+  <meta name="description" content="What Roland Molnár is building right now: a 3D dog game, a LEGO sorting app for Android and iOS, and a pallet planner.">
+  <meta name="theme-color" content="#07080d">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/1826873?v=4&s=64">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="in-progress">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a class="nav-brand" href="index.html">
+      <img src="https://avatars.githubusercontent.com/u/1826873?v=4&s=64" alt="" width="28" height="28">
+      <span>Roland Molnár</span>
+    </a>
+    <div class="nav-links" id="nav-links"></div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="pulse"></span> Work in progress</p>
+      <h1>
+        <span class="hi">What I'm</span>
+        <span class="name grad">building now</span>
+      </h1>
+      <p class="lede">More projects on my desk right now: a 3D game about our dog, a LEGO sorting app with native Android and iPhone versions, and a pallet planner for a warehouse.</p>
+      <div class="stats" id="stats"></div>
+      <div class="cta">
+        <a class="btn btn-glow" href="#projects">Take a look <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-ghost" href="index.html#in-progress"><span aria-hidden="true">←</span> Home</a>
+      </div>
+    </div>
+
+    <div class="hero-stage reveal" id="hero-stage">
+      <div class="stage-glow" id="stage-glow"></div>
+      <div class="hero-viewport tilt" id="hero-viewport">
+        <div id="hero-carousel" role="region" aria-roledescription="carousel" aria-label="Screenshots of the apps in progress"></div>
+      </div>
+      <div class="hero-caption" id="hero-caption"></div>
+      <div class="hero-bars" id="hero-bars"></div>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <main id="projects"></main>
+
+  <footer class="footer">
+    <p><a href="index.html#in-progress">← Home</a></p>
+    <p class="muted">© <span id="year"></span> Roland Molnár</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" id="lb-close" aria-label="Close">×</button>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous screenshot">‹</button>
+    <figure>
+      <div class="lb-view"><div id="lb-carousel"></div></div>
+      <figcaption id="lb-caption"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Next screenshot">›</button>
+  </div>
+
+  <script src="assets/core.js"></script>
+  <script src="assets/wip.js"></script>
+</body>
+</html>

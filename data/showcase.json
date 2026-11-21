@@ -19,21 +19,14 @@
       ]
     },
     {
-      "name": "PlexVerse",
-      "tagline": "All your media servers, one library, one remote.",
-      "platform": "Android TV",
-      "frame": "tv",
-      "accent": "#f5b82e",
-      "icon": "assets/shots/PlexVerse/icon.svg",
+      "name": "ClaudeProfileBar",
+      "tagline": "All your Claude accounts, one click apart.",
+      "platform": "macOS menu bar",
+      "frame": "menubar",
+      "accent": "#6aa5ff",
+      "icon": "assets/shots/ClaudeProfileBar/icon.png",
       "shots": [
-        ["assets/shots/PlexVerse/home-night.jpg", "Home · night"],
-        ["assets/shots/PlexVerse/home-day.jpg", "Home · day"],
-        ["assets/shots/PlexVerse/show-night.jpg", "Show details"],
-        ["assets/shots/PlexVerse/profiles-night.jpg", "Profiles"],
-        ["assets/shots/PlexVerse/kids-day.jpg", "Kids mode"],
-        ["assets/shots/PlexVerse/category-night.jpg", "Categories"],
-        ["assets/shots/PlexVerse/search-day.jpg", "Search"],
-        ["assets/shots/PlexVerse/servers-day.jpg", "Servers"]
+        ["component:profile-panel", "Menu bar panel"]
       ]
     },
     {
@@ -52,19 +45,26 @@
       ]
     },
     {
-      "name": "ClaudeProfileBar",
-      "tagline": "All your Claude accounts, one click apart.",
-      "platform": "macOS menu bar",
-      "frame": "menubar",
-      "accent": "#6aa5ff",
-      "icon": "assets/shots/ClaudeProfileBar/icon.png",
+      "name": "PlexVerse",
+      "tagline": "All your media servers, one library, one remote.",
+      "platform": "Android TV",
+      "frame": "tv",
+      "accent": "#f5b82e",
+      "icon": "assets/shots/PlexVerse/icon.svg",
       "shots": [
-        ["component:profile-panel", "Menu bar panel"]
+        ["assets/shots/PlexVerse/home-night.jpg", "Home · night"],
+        ["assets/shots/PlexVerse/home-day.jpg", "Home · day"],
+        ["assets/shots/PlexVerse/show-night.jpg", "Show details"],
+        ["assets/shots/PlexVerse/profiles-night.jpg", "Profiles"],
+        ["assets/shots/PlexVerse/kids-day.jpg", "Kids mode"],
+        ["assets/shots/PlexVerse/category-night.jpg", "Categories"],
+        ["assets/shots/PlexVerse/search-day.jpg", "Search"],
+        ["assets/shots/PlexVerse/servers-day.jpg", "Servers"]
       ]
     }
   ],
   "library": {
-    "_comment": "Closing section. Repos are read live from the GitHub org; this list is the fallback.",
+    "_comment": "Closing section. Repos are read live from the GitHub org (minus 'hidden'); 'repos' is the fallback. 'packages' are npm packages that live inside a repo; each is listed right after its repo.",
     "name": "Spartan Native",
     "kicker": "My UI theme library",
     "tagline": "Native on every desktop. One Angular codebase.",
@@ -73,14 +73,16 @@
     "org": "Spartan-Native",
     "npm": "https://www.npmjs.com/package/@spartan-native/theme",
     "logo": "assets/shots/SpartanNative/logo.svg",
-    "image": ["assets/shots/SpartanNative/seven-skins.jpg", "One Harbor Backup window in all seven skins"],
+    "image": ["assets/shots/SpartanNative/seven-skins.jpg", "One app window in all seven skins"],
     "usedBy": ["Claudealyzer", "WorkLogger"],
     "repos": [
       { "name": "spartan-native", "description": "The theme, helm and desktop-ui packages, the web host and the host conformance suite.", "homepage": "https://spartan-native.github.io/spartan-native/", "language": "TypeScript" },
-      { "name": "harbor", "description": "Harbor Backup, the sample app: one Angular codebase in the browser, as a PWA and as a Wails desktop app.", "homepage": "https://spartan-native.github.io/harbor/", "language": "TypeScript" },
-      { "name": "host-wails", "description": "Host adapter for Go + Wails v3 that reads accent colour, theme, contrast and text size from the OS itself.", "homepage": "https://spartan-native.github.io/host-wails/", "language": "Go" },
-      { "name": "host-tauri", "description": "Host adapter for Rust + Tauri v2: OS settings, window actions, menus and file dialogs.", "homepage": "", "language": "Rust" },
-      { "name": "host-dotnet", "description": "Host adapter for .NET + Photino.NET: OS settings, window actions and file dialogs.", "homepage": "", "language": "C#" }
+      { "name": "host-wails", "description": "Host adapter for Go + Wails v3 that reads accent colour, theme, contrast and text size from the OS itself.", "homepage": "https://spartan-native.github.io/host-wails/", "language": "Go" }
+    ],
+    "hidden": ["harbor"],
+    "packages": [
+      { "name": "@spartan-native/helm", "repo": "spartan-native", "path": "packages/helm", "description": "Desktop behaviours for spartan/ui: the desktop selection model for lists and tables, default (Enter) and cancel (Esc) buttons, and dialog buttons in each OS's order.", "npm": "https://www.npmjs.com/package/@spartan-native/helm" },
+      { "name": "@spartan-native/desktop-ui", "repo": "spartan-native", "path": "packages/desktop-ui", "description": "The OS-signature pieces spartan/ui doesn't have: window chrome, command bar, modal sheet, inspector, sidebar, settings lists, status bar, split button, tree view and more, laid out per OS.", "npm": "https://www.npmjs.com/package/@spartan-native/desktop-ui" }
     ]
   }
 }

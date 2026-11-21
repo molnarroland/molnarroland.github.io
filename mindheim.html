@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mindheim · Learning apps</title>
+  <meta name="description" content="Mindheim: free, offline-first learning apps for grades 1–8. Maths, geometry, physics, algebra, spelling, chemistry and electricity, explained step by step.">
+  <meta name="theme-color" content="#07080d">
+  <link rel="icon" href="assets/shots/Mindheim/mindheim.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="mindheim" class="mindheim">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a class="nav-brand" href="index.html">
+      <img src="https://avatars.githubusercontent.com/u/1826873?v=4&s=64" alt="" width="28" height="28">
+      <span>Roland Molnár</span>
+    </a>
+    <div class="nav-links" id="nav-links"></div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="pulse"></span> In progress · live at <a href="https://mindheim.app">mindheim.app</a></p>
+      <h1 class="mh-title">
+        <img src="assets/shots/Mindheim/mindheim.svg" alt="" width="88" height="88">
+        <span class="name grad">Mindheim</span>
+      </h1>
+      <p class="lede">Free learning apps for grades 1–8. Maths, geometry, physics, algebra, spelling, chemistry and electricity, each explained step by step in its own small app that lives on your device.</p>
+      <div class="stats" id="stats"></div>
+      <div class="cta">
+        <a class="btn btn-glow" href="https://mindheim.app">Visit mindheim.app <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-ghost" href="#apps">See the apps <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+    <div class="hero-stage reveal" id="hero-stage">
+      <div class="stage-glow" id="stage-glow"></div>
+      <div class="hero-viewport tilt" id="hero-viewport">
+        <div id="hero-carousel" role="region" aria-roledescription="carousel" aria-label="Screenshots of the Mindheim apps"></div>
+      </div>
+      <div class="hero-caption" id="hero-caption"></div>
+      <div class="hero-bars" id="hero-bars"></div>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <section class="band" id="apps">
+    <div class="band-head reveal">
+      <h2 class="section-title">One subject, one app</h2>
+      <p class="band-lede">Each app is a small installable web app on its own subdomain of mindheim.app. Install the ones you need, or all of them: they share the same look, the same owl and the same privacy promise.</p>
+    </div>
+    <div class="app-grid" id="app-grid"></div>
+  </section>
+
+  <main id="projects"></main>
+
+  <section class="band" id="next" hidden>
+    <div class="next-list" id="next-list"></div>
+  </section>
+
+  <section class="band" id="shared">
+    <div class="shared-wrap">
+      <div class="band-head reveal">
+        <h2 class="section-title">What every app shares</h2>
+        <p class="band-lede">The apps are separate, but they're built on one engine and one UI library, so they behave the same way everywhere.</p>
+        <div class="chips" id="stack"></div>
+      </div>
+      <figure class="lib-shot zoomable reveal" id="landing-shot"></figure>
+    </div>
+    <div class="more-grid" id="shared-grid"></div>
+  </section>
+
+  <footer class="footer">
+    <p><a href="index.html#in-progress">← Home</a> · <a href="https://mindheim.app">mindheim.app</a></p>
+    <p class="muted">© <span id="year"></span> Roland Molnár</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" id="lb-close" aria-label="Close">×</button>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous screenshot">‹</button>
+    <figure>
+      <div class="lb-view"><div id="lb-carousel"></div></div>
+      <figcaption id="lb-caption"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Next screenshot">›</button>
+  </div>
+
+  <script src="assets/core.js"></script>
+  <script src="assets/wip.js"></script>
+</body>
+</html>

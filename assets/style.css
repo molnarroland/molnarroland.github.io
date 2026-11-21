@@ -422,6 +422,153 @@ main { width: min(1240px, 100% - 40px); margin: 0 auto; }
 .lib-sub { margin: 56px 0 20px; font-size: 20px; letter-spacing: -.01em; }
 .lib-sub a { color: #c3a6ff; }
 
+/* ---------- Phone frames ----------
+   android: punch-hole camera; ios: Dynamic Island. Screenshots are portrait,
+   shown edge to edge inside a rounded screen. */
+.phone {
+  position: relative; aspect-ratio: 9 / 19.5; padding: 3.4%; border-radius: 15% / 7%;
+  background: linear-gradient(150deg, #2c2d35, #0d0e12 40%, #1b1c22);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .13), inset 0 0 0 1px rgba(255, 255, 255, .06), 0 40px 100px -30px rgba(0, 0, 0, .95);
+}
+.phone-screen { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 12% / 5.6%; background: #000; }
+.phone .cam { position: absolute; z-index: 3; left: 50%; transform: translateX(-50%); background: #000; pointer-events: none; }
+.phone.android .cam { top: 4.4%; width: 3.4%; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 1.5px #111, inset 0 0 0 1px #222; }
+.phone.ios .cam { top: 3.6%; width: 27%; height: 3.1%; border-radius: 99px; }
+.phone-screen::after { /* glass glare */
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(125deg, rgba(255, 255, 255, .06), transparent 30%);
+}
+.phone-scene > .phone { width: auto; height: 100%; }
+.phone-screen > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+/* Two phones side by side: BrickSplit's Android and iOS apps. */
+.p-media.duo { display: flex; justify-content: center; align-items: flex-start; gap: 7%; }
+.p-media.duo .device-wrap { width: 39%; }
+.p-media.duo .device-wrap:nth-child(2) { margin-top: 9%; }
+.p-media :is(.phone) { box-shadow: 0 0 0 1px rgba(255, 255, 255, .13), 0 40px 100px -30px rgba(0, 0, 0, .95), 0 0 80px -30px var(--pa); }
+.duo-label { display: flex; flex-direction: column; align-items: center; margin-top: 18px; font-weight: 650; font-size: 15px; }
+.duo-label .os { width: 8px; height: 8px; border-radius: 50%; margin-bottom: 6px; background: #3ddc84; box-shadow: 0 0 10px #3ddc84; }
+.duo-label .os.ios { background: #e8e8ed; box-shadow: 0 0 10px rgba(255, 255, 255, .6); }
+.duo-label em { font-style: normal; font-weight: 500; font-size: 13px; color: var(--muted); min-height: 1.6em; animation: rise .5s var(--ease) both; }
+.p-thumbs.android button, .p-thumbs.ios button { width: 46px; aspect-ratio: 9 / 19.5; }
+
+/* ---------- Curated project details ---------- */
+.hl { list-style: none; display: grid; gap: 14px; margin: 0 0 26px; padding: 0; }
+.hl li { position: relative; padding-left: 24px; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.hl li::before {
+  content: ""; position: absolute; left: 3px; top: .5em; width: 8px; height: 8px; border-radius: 2px;
+  background: var(--pa); transform: rotate(45deg); box-shadow: 0 0 12px var(--pa);
+}
+.hl b { display: block; color: var(--text); font-weight: 650; }
+.on-light { background: #fff; padding: 5px; }
+.p-icon.on-light { padding: 7px; }
+.hero-caption img.on-light { padding: 4px; }
+
+/* Nav: a highlighted link to the other pages */
+.nav-links a.nav-wip, .nav-links a.nav-out { display: inline-flex; align-items: center; gap: 8px; color: var(--text); border: 1px solid var(--line); }
+.nav-links a.nav-wip { background: linear-gradient(100deg, rgba(255, 122, 89, .16), rgba(200, 107, 255, .16)); }
+.nav-wip .pulse { width: 7px; height: 7px; }
+.nav-out svg { width: 14px; height: 14px; fill: currentColor; transform: rotate(180deg); }
+.eyebrow a { color: var(--text); border-bottom: 1px solid rgba(255, 255, 255, .25); }
+
+/* Mindheim card, first in the home page's In progress section */
+.feature { --pa: #8b5cf6; }
+.feature .lib-card { background: linear-gradient(var(--bg-2), var(--bg-2)) padding-box, linear-gradient(120deg, #3b82f6, #8b5cf6 35%, #e0559f 65%, #f08a24) border-box; }
+.feature .p-links .btn-accent { background: linear-gradient(100deg, #3b82f6, #8b5cf6, #e0559f); }
+.feature .p-links .btn-accent svg { order: 2; }
+a.lib-shot { display: block; }
+.lib-used .chip img.on-light { padding: 2px; }
+
+/* DubAI card: FanSUB and GameDUB, with one screenshot of each */
+.dubai-card {
+  --pa: #f2a93b; margin-bottom: 16px;
+  background: linear-gradient(var(--bg-2), var(--bg-2)) padding-box, linear-gradient(120deg, #f2a93b, #c9a0f2 50%, #35c9ae) border-box;
+  box-shadow: 0 40px 120px -40px rgba(242, 169, 59, .4);
+}
+.dubai-card::before {
+  background: radial-gradient(70% 90% at 100% 0%, rgba(53, 201, 174, .14), transparent 60%),
+    radial-gradient(60% 80% at 0% 100%, rgba(242, 169, 59, .14), transparent 60%);
+}
+.dubai-card .p-kicker { color: #f2c27a; }
+.dubai-card .p-desc b { color: var(--text); font-weight: 650; }
+.dubai-card .p-links .btn-accent { background: linear-gradient(100deg, #f2a93b, #35c9ae); }
+.dubai-logos { display: flex; flex-shrink: 0; }
+.dubai-logos .p-icon { width: 56px; height: 56px; border-radius: 15px; box-shadow: 0 10px 30px -10px #f2a93b; }
+.dubai-logos .p-icon + .p-icon { margin-left: -14px; margin-top: 14px; box-shadow: 0 0 0 3px var(--bg-2), 0 10px 30px -10px #35c9ae; }
+.dubai-shots { position: relative; padding-bottom: 22%; }
+.dubai-shot { display: block; position: relative; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255, 255, 255, .12); transition: transform .5s var(--ease); }
+.dubai-shot img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.dubai-shot span {
+  position: absolute; left: 10px; bottom: 10px; padding: 4px 10px; border-radius: 99px;
+  font-size: 12px; font-weight: 600; color: #0b0b12; background: var(--c);
+}
+.dubai-shot.fs { --c: #f2a93b; width: 84%; box-shadow: 0 30px 80px -30px #000, 0 0 60px -30px #f2a93b; }
+.dubai-shot.gd { --c: #35c9ae; position: absolute; right: 0; bottom: 0; width: 62%; box-shadow: 0 30px 80px -20px #000, 0 0 60px -25px #35c9ae; }
+.dubai-shot:hover { transform: translateY(-4px); z-index: 2; }
+
+/* Card for the other unpublished apps (in-progress.html) */
+.wip-teaser { width: min(1240px, 100% - 40px); margin: 0 auto; padding: 100px 0 20px; border-top: 1px solid var(--line); scroll-margin-top: 40px; }
+.wip-teaser .band-head .eyebrow { margin-bottom: 18px; }
+#mindheim-card { margin-bottom: 16px; }
+.wip-card {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 26px 40px; align-items: center;
+  padding: 40px; border-radius: 28px; border: 1px solid var(--line); overflow: hidden;
+  background: radial-gradient(70% 120% at 100% 0%, rgba(200, 107, 255, .16), transparent 60%),
+    radial-gradient(60% 100% at 0% 100%, rgba(255, 122, 89, .12), transparent 60%), var(--glass);
+  transition: transform .35s var(--ease), border-color .35s;
+}
+.wip-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, .2); }
+.wip-card .eyebrow { margin-bottom: 16px; }
+.wip-card h2 { margin: 0 0 10px; font-size: clamp(28px, 3vw, 40px); letter-spacing: -.03em; line-height: 1.1; }
+.wip-card p { margin: 0; color: var(--muted); max-width: 62ch; }
+.wip-thumbs { display: flex; padding-left: 14px; }
+.wip-thumbs img {
+  width: 68px; height: 68px; border-radius: 18px; margin-left: -14px; object-fit: cover;
+  border: 3px solid var(--bg-2); box-shadow: 0 12px 30px -10px #000; transition: transform .35s var(--ease);
+}
+.wip-card:hover .wip-thumbs img { transform: translateY(-6px) rotate(-4deg); }
+.wip-card:hover .wip-thumbs img:nth-child(even) { transform: translateY(-3px) rotate(4deg); }
+.wip-card .btn { grid-column: 1 / -1; justify-self: start; }
+
+/* ---------- Mindheim page ---------- */
+.mh-title { display: flex; align-items: center; gap: 18px; }
+.mh-title img { width: clamp(64px, 7vw, 96px); height: auto; flex-shrink: 0; filter: drop-shadow(0 12px 30px rgba(139, 92, 246, .45)); }
+.band { width: min(1240px, 100% - 40px); margin: 0 auto; padding: 110px 0 20px; scroll-margin-top: 40px; }
+#apps + main .project:first-child { border-top: 1px solid var(--line); margin-top: 60px; }
+.band-head { max-width: 720px; margin-bottom: 32px; }
+.band-lede { color: var(--muted); font-size: 17px; margin: -12px 0 20px; }
+.app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr)); gap: 14px; }
+.app-card {
+  position: relative; display: flex; gap: 16px; align-items: flex-start; padding: 20px;
+  border-radius: var(--radius); background: var(--glass); border: 1px solid var(--line); overflow: hidden;
+  transition: transform .3s var(--ease), border-color .3s;
+}
+.app-card::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(380px circle at var(--x, 50%) var(--y, 50%), color-mix(in srgb, var(--pa) 22%, transparent), transparent 55%);
+}
+.app-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--pa) 55%, transparent); }
+.app-card:hover::before { opacity: 1; }
+.app-card.soon { border-style: dashed; }
+.app-icon { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; box-shadow: 0 10px 26px -10px var(--pa); }
+.app-card h3 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 0; font-size: 18px; }
+.app-meta { margin: 2px 0 6px !important; font: 500 11px "JetBrains Mono", ui-monospace, monospace !important; letter-spacing: .06em; text-transform: uppercase; color: var(--pa) !important; }
+.app-card p { margin: 0; color: var(--muted); font-size: 14px; }
+.beta {
+  font: 600 10px/1 Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  padding: 4px 7px; border-radius: 99px; background: var(--glass-strong); border: 1px solid var(--line);
+}
+.next-list { display: grid; gap: 16px; }
+.next-card {
+  display: flex; gap: 24px; align-items: flex-start; padding: 36px; border-radius: 24px;
+  border: 1px dashed color-mix(in srgb, var(--pa) 50%, transparent);
+  background: radial-gradient(80% 140% at 0% 0%, color-mix(in srgb, var(--pa) 14%, transparent), transparent 60%), var(--glass);
+}
+.next-card h3 { margin: 2px 0 8px; font-size: clamp(26px, 3vw, 36px); letter-spacing: -.03em; }
+.next-card .p-desc { margin: 0; max-width: 70ch; }
+.shared-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 48px; align-items: center; margin-bottom: 36px; }
+#stack { margin-bottom: 0; }
+
 /* ---------- Footer ---------- */
 .footer { text-align: center; padding: 60px 20px 50px; color: var(--muted); font-size: 14px; }
 .footer p { margin: 4px 0; }
@@ -465,11 +612,19 @@ main { width: min(1240px, 100% - 40px); margin: 0 auto; }
   .project:nth-child(even) .p-media { order: 0; }
   .lib-card { grid-template-columns: minmax(0, 1fr); padding: 28px; gap: 32px; }
   .lib-shot { order: -1; }
-  .nav-links { display: none; }
-  .nav-gh { margin-left: auto; }
+  /* Only the links to the other pages stay in the nav. */
+  .nav-links a:not(.nav-wip):not(.nav-out) { display: none; }
+  .nav-gh { margin-left: 8px; }
+  .wip-card, .shared-wrap { grid-template-columns: minmax(0, 1fr); }
+  .dubai-shots { order: -1; }
+  .p-media.duo .device-wrap { width: 42%; }
 }
 @media (max-width: 560px) {
-  .hero, main, .more, .library { width: calc(100% - 32px); }
+  .hero, main, .more, .library, .wip-teaser, .band { width: calc(100% - 32px); }
+  .nav-links a .pulse { display: none; }
+  .wip-card { padding: 24px; }
+  .next-card { flex-direction: column; padding: 24px; }
+  .p-media.duo .device-wrap { width: 46%; }
   .lib-card { padding: 20px; border-radius: 22px; }
   .lightbox { grid-template-columns: 1fr; }
   .lb-nav { position: absolute; bottom: 24px; }

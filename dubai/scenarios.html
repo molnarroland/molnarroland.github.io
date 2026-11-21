@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who It's For · DubAI FanSUB</title>
+<meta name="description" content="Nine ways groups use DubAI: fansub groups, teams with no cast, mixed human and AI casts, voice-acting communities, schools, families, subtitle-only groups, sound engineers, and game translation teams with GameDUB.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<canvas id="waves" aria-hidden="true"></canvas>
+<header class="wall">
+  <nav aria-label="Main">
+    <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#f2a93b"/><path d="M9 21V11l7 5-7 5z" fill="#1a1408"/><path d="M19 11.5c1.6 1 2.5 2.6 2.5 4.5s-.9 3.5-2.5 4.5M22 9c2.4 1.6 3.8 4.1 3.8 7s-1.4 5.4-3.8 7" stroke="#1a1408" stroke-width="2" fill="none" stroke-linecap="round"/></svg>DubAI FanSUB</a>
+    <a class="l home" href="../index.html#in-progress" aria-label="Home" title="Home"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true" style="display:block"><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Z"/></svg></a>
+    <a class="l" href="./#how">How it works</a><a class="l" href="./#local-ai">Local AI</a><a class="l" href="./#privacy">Privacy</a><a class="l gdl" href="./#gamedub">GameDUB</a><a class="l" href="scenarios.html" aria-current="page">Who it's for</a>
+  </nav>
+  <div class="band" style="padding-top:clamp(20px,3vw,40px)">
+    <div class="wrap">
+      <p class="eyebrow">Scenarios</p>
+      <h1>Who uses it, and how</h1>
+      <p class="lead">Most of Europe's smaller languages, from Estonian to Maltese, rarely get a dub. The same app serves a weekly fansub release, a classroom project and a parent making a cartoon their child can follow. Here are eight groups, what they set up, and the screens they spend their time on. A ninth dubs games, with FanSUB's sister app GameDUB.</p>
+      <p class="note" style="margin-top:12px">Screens show a made-up demo series, <i>Starlit Harbor</i>, dubbed into Estonian. Every name in them is fictional.</p>
+      <div class="picker" aria-label="Jump to a scenario">
+        <a href="#fansub"><span class="dot" style="background:var(--ao)"></span><span>Fansub groups<span class="s">a voice track for the weekly release</span></span></a>
+        <a href="#solo"><span class="dot" style="background:var(--ka)"></span><span>A team without a cast<span class="s">AI voices for the whole episode</span></span></a>
+        <a href="#mixed"><span class="dot" style="background:var(--re)"></span><span>A half-full cast<span class="s">people for the leads, AI for the rest</span></span></a>
+        <a href="#community"><span class="dot" style="background:var(--mo)"></span><span>Voice-acting communities<span class="s">casting across towns and countries</span></span></a>
+        <a href="#school"><span class="dot" style="background:var(--re)"></span><span>Schools and drama clubs<span class="s">a dubbing project for a class</span></span></a>
+        <a href="#family"><span class="dot" style="background:var(--mo)"></span><span>Families<span class="s">cartoons for children who can't read yet</span></span></a>
+        <a href="#subs"><span class="dot" style="background:var(--ao)"></span><span>Subtitle-only groups<span class="s">speaker names and clean tracks</span></span></a>
+        <a href="#engineer"><span class="dot" style="background:var(--ka)"></span><span>Sound engineers<span class="s">effects, plug-ins and the final mix</span></span></a>
+        <a href="#games"><span class="dot" style="background:var(--teal)"></span><span>Game translation teams<span class="s">a game's lines, timed for a dub, with GameDUB</span></span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 1 -->
+<section class="band scen" id="fansub" style="--c:var(--ao)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <h2>A fansub group adds a dub to its weekly release</h2>
+        <p class="lead">A Latvian or Slovenian fansub group already translates every episode. Now its members also voice the characters, each from home, and the release ships with a dubbed audio track next to the original.</p>
+        <div class="who"><span class="tag t-mac">Host: the group's encoder, on a Mac</span><span class="tag t-act">Cast: 4–8 members, any browser</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">01</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>Prepare on release day</b>The host imports the MKV with the group's own subtitle, lets FanSUB separate dialogue from music and assigns each line to a character.</li>
+          <li><b>Open a session</b>One link, QR code and password go into the group chat. Members pick their character; taken ones show who has them.</li>
+          <li><b>Record during the week</b>Each actor gets only their lines, the clip, the original voice as a guide and the background. Takes are sent when they're happy.</li>
+          <li><b>Approve and release</b>The host is told as each take comes in, and the Dashboard shows which lines are still missing. Approve takes or ask for a retake with a note, then exports the MKV with the dub as the default audio and the original kept.</li>
+        </ol>
+        <div class="quote"><b>Why it works for a weekly schedule:</b> characters, voice actors and voices carry over from one episode to the next, so episode two starts where episode one ended.</div>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><picture><source srcset="img/light/fs-session.webp" media="(prefers-color-scheme: light)"><img src="img/fs-session.webp" alt="Fandub session screen: connection behind a reverse proxy, join link and QR code, the password, and what participants get" width="1920" height="1200" loading="lazy"></picture><figcaption>The host's session: link, QR code, password and what each actor receives.</figcaption></figure>
+        <div class="pair">
+          <figure class="shot"><picture><source srcset="img/light/web-booth.webp" media="(prefers-color-scheme: light)"><img src="img/web-booth.webp" alt="Browser booth with the clip, the line and the Record button" width="1848" height="1350" loading="lazy"></picture><figcaption>An actor's booth in the browser.</figcaption></figure>
+          <figure class="shot"><picture><source srcset="img/light/fs-fandub.webp" media="(prefers-color-scheme: light)"><img src="img/fs-fandub.webp" alt="Release fandub: lines approved, mix sliders and export options" width="1920" height="1200" loading="lazy"></picture><figcaption>Release fandub: mix and export.</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="band scen wall" id="solo" style="--c:var(--ka)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <h2>A team with no voice actors dubs the whole episode with local AI</h2>
+        <p class="lead">One or two people want a dub in Maltese or Lithuanian, but have nobody to record. Each character gets a voice, the Mac speaks every line, and the team spends its time listening and fixing instead of recording.</p>
+        <div class="who"><span class="tag t-mac">One Mac</span><span class="tag t-ai">OmniVoice model, 1.4 GB</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">02</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>Give each character a voice</b>Clone it from a clean passage of the episode, pick a section by hand, import a recording, or design one from a description.</li>
+          <li><b>Generate voices</b>Choose the characters and Best or Faster. Each line is spoken in the target language and fitted to the time the original took. A 160-line episode takes about 6–11 minutes.</li>
+          <li><b>Fix what doesn't fit</b>Lines that are too long are listed. Give one a shorter alternative or more time, and generate only that line again.</li>
+          <li><b>Check and approve</b>Generated takes are listened to again: wrong words or the wrong voice are flagged. Approve the rest together, then watch it all in the Theatre.</li>
+        </ol>
+        <div class="quote"><b>Nothing leaves the Mac.</b> The voice model runs locally: no account, no upload, no per-minute bill. Its licence allows non-commercial use only.</div>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><picture><source srcset="img/light/fs-voice.webp" media="(prefers-color-scheme: light)"><img src="img/fs-voice.webp" alt="Voice panel for a character with Import a recording, Design, Clone from this episode and Pick a section" width="1920" height="1200" loading="lazy"></picture><figcaption>A voice per character: clone, import, design or pick a section.</figcaption></figure>
+        <div class="pair">
+          <figure class="shot"><picture><source srcset="img/light/fs-generate.webp" media="(prefers-color-scheme: light)"><img src="img/fs-generate.webp" alt="Generate voices with the characters, quality choice and lines that don't fit" width="1920" height="1200" loading="lazy"></picture><figcaption>Generate voices, and the lines that need a shorter text.</figcaption></figure>
+          <figure class="shot"><picture><source srcset="img/light/fs-theatre.webp" media="(prefers-color-scheme: light)"><img src="img/fs-theatre.webp" alt="Theatre with every line approved and a bar of the episode coloured by character" width="1920" height="1200" loading="lazy"></picture><figcaption>The Theatre: watch the result before releasing it.</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="band scen" id="mixed" style="--c:var(--re)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <h2>A half-full cast: people for the leads, AI for everyone else</h2>
+        <p class="lead">The group has voices for the three main characters but not for the shopkeeper, the teacher and the crowd. People record the leads; the side characters are generated and come into the same inbox.</p>
+        <div class="who"><span class="tag t-act">Lead actors in browsers</span><span class="tag t-ai">Side characters generated</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">03</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>Split the cast</b>Leads are picked in the fandub session as usual. In Generate voices, tick only the characters nobody is voicing.</li>
+          <li><b>Keep the human takes</b>"Keep lines that already have a recorded take" stays on, so a generated line never replaces a person's recording.</li>
+          <li><b>Use a real voice for the AI</b>A group member who doesn't want to act can still lend a voice: import their recording and a side character speaks with it.</li>
+          <li><b>One inbox for both</b>Recorded and generated takes are approved, edited or regenerated in the same Takes inbox, one take per line.</li>
+        </ol>
+        <div class="quote"><b>Swap later:</b> when a new member joins, they pick the character and record. Their approved take wins over the generated one.</div>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><picture><source srcset="img/light/fs-takes.webp" media="(prefers-color-scheme: light)"><img src="img/fs-takes.webp" alt="Takes inbox listing incoming takes, with the take editor and Approve and Generate again buttons" width="1920" height="1200" loading="lazy"></picture><figcaption>Takes inbox: recorded and generated takes side by side.</figcaption></figure>
+        <figure class="shot"><picture><source srcset="img/light/web-pick.webp" media="(prefers-color-scheme: light)"><img src="img/web-pick.webp" alt="Character picker in the browser, one character taken and others free" width="1848" height="1158" loading="lazy"></picture><figcaption>Lead actors pick their character in the browser.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="band scen wall" id="community" style="--c:var(--mo)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <h2>A voice-acting community casts across towns and countries</h2>
+        <p class="lead">Estonian actors live in Tallinn, Tartu and abroad, and record at different hours. The host runs the session behind a reverse proxy so everyone can reach it, and gives notes per line instead of directing in one room.</p>
+        <div class="who"><span class="tag t-mac">Host with a domain or tunnel</span><span class="tag t-act">Actors anywhere, on any device</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">04</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>Reach people outside the home network</b>Put the session behind Caddy, nginx or a tunnel. The app shows the address to forward to and puts the public link in the QR code.</li>
+          <li><b>Record on the go</b>The booth works on a phone. Actors can keep their lines for offline practice, with the guide voice and the background stored in their browser.</li>
+          <li><b>Direct with notes</b>Ask for a retake with a note on a single line; the actor sees it next to that line in their booth.</li>
+          <li><b>Credit everyone</b>The name an actor types when joining goes into the voice credits of the release.</li>
+        </ol>
+      </div>
+      <div class="gallery">
+        <div class="pair" style="align-items:start">
+          <figure class="shot"><picture><source srcset="img/light/web-join.webp" media="(prefers-color-scheme: light)"><img src="img/web-join.webp" alt="Join page asking for the session password and the actor's name" width="1848" height="1158" loading="lazy"></picture><figcaption>Join with the password and the name for the credits.</figcaption></figure>
+          <figure><div class="phone-sm"><picture><source srcset="img/light/web-phone.webp" media="(prefers-color-scheme: light)"><img src="img/web-phone.webp" alt="The recording booth on a phone" width="585" height="1266" loading="lazy"></picture></div><figcaption>The same booth on a phone.</figcaption></figure>
+        </div>
+        <figure class="shot"><picture><source srcset="img/light/fs-session.webp" media="(prefers-color-scheme: light)"><img src="img/fs-session.webp" alt="Session connection set to Behind a reverse proxy, with a public address" width="1920" height="1200" loading="lazy"></picture><figcaption>"Behind a reverse proxy": the public address goes into the link and QR code.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="band scen" id="school" style="--c:var(--re)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <h2>A class dubs a short film as a language project</h2>
+        <p class="lead">A teacher in Ljubljana or Bratislava runs the session on one Mac in the classroom. Pupils join from school laptops or their phones, each voices a character, and the class watches the result together at the end of the week.</p>
+        <div class="who"><span class="tag t-mac">The teacher's Mac</span><span class="tag t-act">Pupils on school laptops or phones</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">05</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>Keep it on the school network</b>Local network mode needs no setup: pupils scan the QR code on the projector and type the password.</li>
+          <li><b>Translate as homework</b>The class writes the subtitle in their own language, or one they're learning; the dub follows that text line by line.</li>
+          <li><b>Hear yourself against the original</b>Pupils hear the original line, record, and see whether their take fits the timing before sending.</li>
+          <li><b>Fill the gaps with AI</b>Characters nobody wanted can be generated, so the film is complete even in a small class.</li>
+          <li><b>Premiere in the Theatre</b>Play the finished dub for the class, or one character at a time to talk about pronunciation.</li>
+        </ol>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><picture><source srcset="img/light/fs-theatre.webp" media="(prefers-color-scheme: light)"><img src="img/fs-theatre.webp" alt="Theatre with a Hear filter for everyone or one character" width="1920" height="1200" loading="lazy"></picture><figcaption>Theatre: everyone together, or one pupil's character in a row.</figcaption></figure>
+        <figure class="shot"><picture><source srcset="img/light/web-booth.webp" media="(prefers-color-scheme: light)"><img src="img/web-booth.webp" alt="Booth with Hear original and Record" width="1848" height="1350" loading="lazy"></picture><figcaption>Hear the original, then record your own line.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="band scen wall" id="family" style="--c:var(--mo)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <h2>A family makes a cartoon their children can follow</h2>
+        <p class="lead">The children are too young for subtitles, and the show isn't dubbed into the family's language. A parent makes an Estonian or Irish dub at home, in the evening, with the family's own voices or AI voices.</p>
+        <div class="who"><span class="tag t-mac">A home Mac</span><span class="tag t-ai">Family voices, imported</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">06</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>Use the subtitles you have</b>A subtitle in your language, from the release or a fan translation, is all the script you need.</li>
+          <li><b>Grandma reads the narrator</b>Record a minute of her talking on a phone and import it as a voice. Music is taken out and the best part is kept.</li>
+          <li><b>Or record together</b>Parents and older children record their characters in the browser on the sofa, one line at a time.</li>
+          <li><b>Watch it on the TV</b>Export the MKV with the dub as default audio and the original kept, and play it on any player.</li>
+        </ol>
+        <div class="quote"><b>Grandparents too:</b> a dub helps anyone who would rather listen than read, not only children.</div>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><picture><source srcset="img/light/fs-voice.webp" media="(prefers-color-scheme: light)"><img src="img/fs-voice.webp" alt="Voice panel, Import a recording tab: audio or video up to 15 minutes, with Remove music and effects" width="1920" height="1200" loading="lazy"></picture><figcaption>Import a recording: any audio or video up to 15 minutes.</figcaption></figure>
+        <figure class="shot"><picture><source srcset="img/light/fs-projects.webp" media="(prefers-color-scheme: light)"><img src="img/fs-projects.webp" alt="Projects screen with a series card showing progress" width="1920" height="1200" loading="lazy"></picture><figcaption>Each series keeps its characters and voices for the next episode.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="band scen" id="subs" style="--c:var(--ao)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <h2>A subtitle-only group gets cleaner subtitles and separated tracks</h2>
+        <p class="lead">Not every group wants a dub. FanSUB's preparation alone fills in who says every line, finds the opening and ending, and makes a clean dialogue track and a no-dialogue track.</p>
+        <div class="who"><span class="tag t-mac">One Mac</span><span class="tag t-out">No session, no voices needed</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">07</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>Assign lines fast</b>The video stops at the end of each line; press 1 to 9 for the speaker. Voice matching can suggest who it is.</li>
+          <li><b>Let the checks find mistakes</b>Review points out lines without a speaker, overlaps and speech running past the subtitle.</li>
+          <li><b>Export for the group</b>An ASS file with every Actor field filled in, multi-speaker lines kept as one event, plus a cast sheet for translators.</li>
+          <li><b>Hand on the audio</b>Dialogue and no-dialogue as FLAC, or one MKA, for editors and karaoke timers.</li>
+        </ol>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><picture><source srcset="img/light/fs-assign.webp" media="(prefers-color-scheme: light)"><img src="img/fs-assign.webp" alt="Assign lines: player, the current line with character avatars, and the subtitles around the playhead" width="1920" height="1200" loading="lazy"></picture><figcaption>Assign lines with the keyboard.</figcaption></figure>
+        <figure class="shot"><picture><source srcset="img/light/fs-save.webp" media="(prefers-color-scheme: light)"><img src="img/fs-save.webp" alt="Save and export: project contents, status, and exports for ASS with speakers, audio tracks, new MKV and cast sheet" width="1920" height="1200" loading="lazy"></picture><figcaption>Save &amp; export: ASS with speakers, audio tracks, cast sheet.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="band scen wall" id="engineer" style="--c:var(--ka)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <h2>A sound engineer polishes the mix</h2>
+        <p class="lead">Home recordings sound like home recordings. The group's engineer shapes each character, makes robots sound like robots, and evens out ten different microphones.</p>
+        <div class="who"><span class="tag t-mac">The host's Mac, or a round trip</span><span class="tag t-out">Your own plug-ins and DAW</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">08</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>An effect chain per character</b>Presets and Audio Unit plug-ins on the approved takes. Takes stay as recorded; effects are worked out at release and can be switched off.</li>
+          <li><b>Compare before and after</b>Press B to flip, and override the chain for a single line.</li>
+          <li><b>Round trip</b>Export a character's track with timecode to another audio app and load it back when done.</li>
+          <li><b>Fix single takes by hand</b>In the take editor, under the scene’s video, with every word on the timeline: split between words, trim and move parts, change speed, pitch and level, with undo.</li>
+          <li><b>Loudness and room sound</b>Release fandub evens out loudness between actors, matches the original episode and can add a little room sound so home recordings sit in the scene.</li>
+        </ol>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><picture><source srcset="img/light/fs-voicefx.webp" media="(prefers-color-scheme: light)"><img src="img/fs-voicefx.webp" alt="Voice effects screen with characters and an effect chain" width="1920" height="1200" loading="lazy"></picture><figcaption>Voice effects: presets, plug-ins and a round trip.</figcaption></figure>
+        <figure class="shot"><picture><source srcset="img/light/fs-fandub.webp" media="(prefers-color-scheme: light)"><img src="img/fs-fandub.webp" alt="Release fandub mix settings: voices and background levels, loudness options and speed-up limit" width="1920" height="1200" loading="lazy"></picture><figcaption>The final mix in Release fandub.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="band scen wall gd" id="games" style="--c:var(--teal)">
+  <div class="wrap">
+    <div class="scen-head">
+      <div>
+        <p class="eyebrow">With DubAI GameDUB</p>
+        <h2>A game translation team prepares a voiced game for a dub</h2>
+        <p class="lead">A fan translation team has already put a game's text into Hungarian. The voices are still English. Before anyone records, they need every spoken line, who says it, and how long each one may last, out of a folder of numbered sound files and engine archives.</p>
+        <div class="who"><span class="tag t-mac">One Mac</span><span class="tag t-gd">GameDUB, with ffmpeg and vgmstream</span></div>
+      </div>
+      <span class="scen-num" aria-hidden="true">09</span>
+    </div>
+    <div class="scen-body">
+      <div>
+        <ol class="steps">
+          <li><b>Scan the game's folder</b>GameDUB recognises the engine (here Unity with Wwise) and says what it read and what to unpack, with which tool. After unpacking, Scan again keeps everything done so far.</li>
+          <li><b>Get the voices out</b>Voices inside Wwise banks are copied out with one button; Wwise, Ogg and Opus audio is converted to WAV so every line plays.</li>
+          <li><b>Check the lines</b>Text and voice files are matched by key, speakers come from the table or the voice folders, and menus and item names are left out.</li>
+          <li><b>Time and write</b>Transcription gives each line its speech start, end and pauses. The Script screen shows whether each translation fits that time and the game's length limit.</li>
+        </ol>
+        <div class="quote"><b>The game stays as it was.</b> GameDUB only reads the game's folder; converted voices and sounds taken out of banks go into its own project folder.</div>
+      </div>
+      <div class="gallery">
+        <figure class="shot"><picture><source srcset="img/light/gd-gamefiles.webp" media="(prefers-color-scheme: light)"><img src="img/gd-gamefiles.webp" alt="Game files: what the scan found, the engine card for Unity with Wwise, voice folders and text tables" width="1920" height="1200" loading="lazy"></picture><figcaption>Game files: the engine, what was read and what still needs unpacking.</figcaption></figure>
+        <div class="pair">
+          <figure class="shot"><picture><source srcset="img/light/gd-timing.webp" media="(prefers-color-scheme: light)"><img src="img/gd-timing.webp" alt="Timing: a waveform with word blocks and the game's text matched word by word" width="1920" height="1200" loading="lazy"></picture><figcaption>Timing: when each word is said.</figcaption></figure>
+          <figure class="shot"><picture><source srcset="img/light/gd-characters.webp" media="(prefers-color-scheme: light)"><img src="img/gd-characters.webp" alt="Characters: five speakers with their lines, words, seconds of speech and voice actor" width="1920" height="1200" loading="lazy"></picture><figcaption>Characters, ready to cast.</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="next">
+  <div class="wrap two" style="margin-top:0;align-items:center">
+    <div>
+      <h2>Whichever group you are</h2>
+      <p class="lead">You need one Mac with Apple silicon and macOS 26. Everyone else needs only a browser, and the AI voices are an optional download.</p>
+    </div>
+    <div class="b3" style="margin-top:0">
+      <a class="card" href="./#how"><span class="k">Tour</span><h3>Every screen, in order</h3><p>From one MKV to a finished fandub.</p><span class="more">How it works →</span></a>
+      <a class="card" href="./#local-ai"><span class="k">New</span><h3>Local AI voices</h3><p>Generate, check and fix lines on the Mac.</p><span class="more">Local AI →</span></a>
+      <a class="card" href="./#gamedub"><span class="k" style="color:var(--tealInk)">New app</span><h3>GameDUB</h3><p>A game's spoken lines, timed and ready to dub.</p><span class="more" style="color:var(--tealInk)">GameDUB →</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span><b style="color:var(--ink)">DubAI FanSUB</b> · fan dubbing on one Mac, with local AI voices · and <a href="./#gamedub">GameDUB</a> for games</span><span>Make fandubs only of releases you're allowed to use, and clone voices only with consent.</span></div>
+</footer>
+<script src="waves.js"></script>
+</body>
+</html>

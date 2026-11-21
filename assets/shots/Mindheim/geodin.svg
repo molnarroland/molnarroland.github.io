@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="0.9" fill="#B9C6DB"></circle>
+    </pattern>
+  </defs>
+  <g transform="rotate(-3 64 66)">
+    <rect x="16" y="19" width="98" height="98" rx="6" fill="#1A2238" opacity="0.12"></rect>
+    <rect x="13" y="16" width="98" height="98" rx="6" fill="#FFFFFF"></rect>
+    <rect x="13" y="16" width="98" height="98" rx="6" fill="url(#dots)" stroke="#1A2238" stroke-width="2.5"></rect>
+  </g>
+  <rect x="46" y="6" width="36" height="14" rx="2" fill="#FFE58A" opacity="0.9" transform="rotate(3 64 13)"></rect>
+  <path d="M14 70 A44 44 0 0 1 58 24" fill="none" stroke="#F5A623" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="round"></path>
+  <g stroke="#1A2238" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 18 L20 52" fill="none"></path>
+    <path d="M30 18 L40 50" fill="none"></path>
+    <circle cx="30" cy="17" r="3.5" fill="#C3CCDD"></circle>
+  </g>
+  <g stroke="#0F1E33" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M40 88 L22 100 L30 80 Z" fill="#1F3A5F"></path>
+    <path d="M40 88 L64 54 L92 64 L84 94 Z" fill="#1F3A5F"></path>
+    <path d="M52 76 L86 66 L70 96 Z" fill="#3E7CB1"></path>
+    <path d="M64 54 L76 34 L92 50 L92 64 Z" fill="#2B5A8A"></path>
+    <path d="M90 42 L108 47 L91 54 Z" fill="#F5A623"></path>
+  </g>
+  <path d="M64 54 L92 64 M70 96 L86 66" stroke="#0F1E33" stroke-width="1.2" opacity="0.6"></path>
+  <circle cx="82" cy="45" r="4.2" fill="#FFFFFF" stroke="#0F1E33" stroke-width="1.6"></circle>
+  <circle cx="83" cy="45" r="1.8" fill="#0F1E33"></circle>
+  <path d="M66 96 l-3 9 M76 94 l2 10" stroke="#0F1E33" stroke-width="2.4" stroke-linecap="round"></path>
+  <g fill="none" stroke="#2FA35A" stroke-width="2.4" stroke-linecap="round">
+    <path d="M78 116 A18 18 0 0 1 114 116 Z" fill="#E3F7EA"></path>
+    <path d="M96 116 L96 108 M86 109 l3 4 M106 109 l-3 4"></path>
+  </g>
+  <path d="M102 20 l8 0 l-4 -7 Z M104 30 h8 v8 h-8 Z" fill="none" stroke="#3E7CB1" stroke-width="2" stroke-linejoin="round"></path>
+</svg>
