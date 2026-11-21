@@ -17,7 +17,7 @@ What it does:
 - Scroll-reveal, 3D tilt, aurora background and a cursor spotlight. All motion
   is switched off for visitors with *reduce motion* enabled.
 - **Spartan Native** closing section: my UI theme library used by
-  ClaudeProfileBar and WorkLogger, with links into those apps and a list of the
+  Claudealyzer and WorkLogger, with links into those apps and a list of the
   repositories in the [Spartan-Native](https://github.com/Spartan-Native)
   organisation (read live, with the `library` entry in `data/showcase.json` as
   fallback).
