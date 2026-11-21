@@ -167,7 +167,7 @@
     $("landing-shot").addEventListener("click", () => openLightbox([{ src: img, caption: alt, project: { title: "Mindheim" } }], 0));
 
     renderNav([["apps", "Apps"], ...apps.map((a) => [a.name, a.title]), ["shared", "Shared"]],
-      `<a class="nav-out" href="index.html#in-progress">${ICON.arrow}Home</a>`);
+      `<a class="nav-out" href="index.html#Mindheim">${ICON.arrow}Home</a>`);
     renderMarquee(apps);
     scrollSpy("#apps, .project, #shared");
   }

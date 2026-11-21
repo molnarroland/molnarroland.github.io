@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roland Molnár · Projects</title>
+  <meta name="description" content="Apps and tools Roland Molnár has built and published on GitHub.">
+  <meta name="theme-color" content="#07080d">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/1826873?v=4&s=64">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- Icons for the Claude Profile Bar panel mock-up -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="3.4" fill="currentColor"/><path d="M5.8 18.4c1.4-2.3 3.6-3.5 6.2-3.5s4.8 1.2 6.2 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="m7.5 12.3 3 3 6-6.3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-chevrons" viewBox="0 0 24 24"><path d="m8 9.5 4-4 4 4M8 14.5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-window" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m7.5 9.5 3 2.5-3 2.5M12.5 15h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3M19.5 4v4h-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a class="nav-brand" href="#top">
+      <img id="nav-avatar" src="https://avatars.githubusercontent.com/u/1826873?v=4&s=64" alt="" width="28" height="28">
+      <span id="nav-name">Roland Molnár</span>
+    </a>
+    <div class="nav-links" id="nav-links"></div>
+    <a class="nav-gh" href="https://github.com/molnarroland" aria-label="GitHub profile">
+      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="pulse"></span> Building in public on GitHub</p>
+      <h1>
+        <span class="hi">Hi, I'm</span>
+        <span class="name grad" id="name">Roland Molnár</span>
+      </h1>
+      <p class="lede">I build the apps and tools I want to use myself, for the desktop, the menu bar and the living-room TV. All of them are open source.</p>
+      <div class="stats" id="stats"></div>
+      <div class="cta">
+        <a class="btn btn-glow" href="#projects">Explore the projects <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-ghost" href="https://github.com/molnarroland">@molnarroland</a>
+      </div>
+    </div>
+
+    <div class="hero-stage reveal" id="hero-stage">
+      <div class="stage-glow" id="stage-glow"></div>
+      <div class="hero-viewport tilt" id="hero-viewport">
+        <div id="hero-carousel" role="region" aria-roledescription="carousel" aria-label="Screenshots of Roland's apps"></div>
+      </div>
+      <div class="hero-caption" id="hero-caption"></div>
+      <div class="hero-bars" id="hero-bars"></div>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <main id="projects"></main>
+
+  <section class="more" id="more" hidden>
+    <h2 class="section-title reveal">More on GitHub</h2>
+    <div class="more-grid" id="more-grid"></div>
+  </section>
+
+  <section class="library" id="spartan-native" hidden></section>
+
+  <section class="wip-teaser" id="in-progress">
+    <div class="band-head reveal">
+      <p class="eyebrow"><span class="pulse"></span> Work in progress</p>
+      <h2 class="section-title">In progress</h2>
+      <p class="band-lede">What I'm building right now. These aren't published as source.</p>
+    </div>
+
+    <div class="feature" id="mindheim-card" hidden></div>
+
+    <div class="lib-card dubai-card reveal" id="dubai">
+      <div class="lib-copy">
+        <div class="p-head">
+          <span class="dubai-logos"><img class="p-icon" src="assets/shots/DubAI/fansub.svg" alt=""><img class="p-icon" src="assets/shots/DubAI/gamedub.svg" alt=""></span>
+          <div><div class="p-kicker">2 macOS apps · local AI</div><h2 class="p-name">DubAI</h2></div>
+        </div>
+        <p class="p-tagline">Your language deserves a dub too.</p>
+        <p class="p-desc"><b>FanSUB</b> turns a series episode into a finished fan dub on one Mac. It separates the voices from the music, sorts every line by character, lets the cast record from home in any browser, and AI voices that run on the Mac speak the lines nobody has recorded yet. <b>GameDUB</b>, its sister app, opens a game's folder, finds the voice files and text tables, and times every spoken line, ready to dub.</p>
+        <div class="chips">
+          <span class="chip">macOS 26 · Apple silicon</span><span class="chip">Swift 6</span><span class="chip">Runs on device</span><span class="chip">Browser recording booth</span>
+        </div>
+        <div class="p-links">
+          <a class="btn btn-accent" href="dubai/">Explore DubAI <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"/></svg></a>
+          <a class="btn" href="dubai/#gamedub">GameDUB</a>
+          <a class="btn" href="dubai/scenarios.html">Who it's for</a>
+        </div>
+      </div>
+      <div class="dubai-shots">
+        <a class="dubai-shot fs" href="dubai/#how"><img src="dubai/img/fs-assign.webp" alt="FanSUB's Assign lines screen: the episode playing, the current line and the character who says it" loading="lazy" width="1920" height="1200"><span>FanSUB · Assign lines</span></a>
+        <a class="dubai-shot gd" href="dubai/#gamedub"><img src="dubai/img/gd-lines.webp" alt="GameDUB's Lines screen: every spoken line of a game with its character, text, length and timing" loading="lazy" width="1920" height="1200"><span>GameDUB · Lines</span></a>
+      </div>
+    </div>
+
+    <a class="wip-card reveal" href="in-progress.html">
+      <div>
+        <h2>More on my desk</h2>
+        <p>A 3D game about our dog, a LEGO sorting app with native Android and iPhone versions, and a pallet planner for a warehouse.</p>
+      </div>
+      <div class="wip-thumbs" aria-hidden="true">
+        <img src="assets/shots/KajsziSzimulator/icon.png" alt="">
+        <img src="assets/shots/BrickSplit/icon.png" alt="">
+        <img src="assets/shots/RaklapRendezo/icon.svg" alt="">
+      </div>
+      <span class="btn btn-glow">See the other projects <span aria-hidden="true">→</span></span>
+    </a>
+  </section>
+
+  <footer class="footer">
+    <p><span id="source"></span> · <a href="https://github.com/molnarroland?tab=repositories">All repositories</a> · <a href="mindheim.html">Mindheim</a> · <a href="dubai/">DubAI</a> · <a href="in-progress.html">In progress</a> · <a href="index.html">Showcase view</a></p>
+    <p class="muted">© <span id="year"></span> Roland Molnár</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" id="lb-close" aria-label="Close">×</button>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous screenshot">‹</button>
+    <figure>
+      <div class="lb-view"><div id="lb-carousel"></div></div>
+      <figcaption id="lb-caption"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Next screenshot">›</button>
+  </div>
+
+  <script src="assets/core.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

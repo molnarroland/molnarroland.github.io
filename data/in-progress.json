@@ -1,9 +1,10 @@
 {
-  "_comment": "Projects on the 'In progress' page (in-progress.html). Not on GitHub, so everything here is curated. devices: one or more device frames (window, tv, android, ios), each with its own screenshots. Mindheim is on the home page and has its own page (data/mindheim.json).",
+  "_comment": "Projects on the 'In progress' page (in-progress.html). Not on GitHub, so everything here is curated. devices: one or more device frames (window, tv, android, ios), each with its own screenshots. status: \"live\" puts a project in the Live group of the home page dock. Mindheim is on the home page and has its own page (data/mindheim.json).",
   "platforms": ["Web", "Android", "iOS"],
   "projects": [
     {
       "name": "kajszi",
+      "status": "live",
       "title": "Kajszi szimulátor",
       "platform": "Web game · PWA",
       "accent": "#e9a44a",
@@ -73,6 +74,7 @@
     },
     {
       "name": "raklap",
+      "status": "live",
       "title": "Raklap Rendező",
       "platform": "Web · internal tool",
       "accent": "#6f9bd8",
