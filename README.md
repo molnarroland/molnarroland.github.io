@@ -58,7 +58,7 @@ The original home page, still linked from the top bar.
   put back the Home icon in its nav, linking to `../index.html#DubAI`). Last, a card
   links to the **In progress** page (`in-progress.html`)
   with Kajszi szimulátor, BrickSplit (its Android and iOS apps side by side in
-  phone frames) and Raklap Rendező.
+  phone frames), Raklap Rendező and Fejlesztőház.
 - **Mindheim** page (`mindheim.html`): the seven learning apps live on
   [mindheim.app](https://mindheim.app), each with its own section, screenshots,
   highlights and a link to its subdomain, plus the app that's coming next and what

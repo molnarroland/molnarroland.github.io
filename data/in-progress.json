@@ -1,6 +1,6 @@
 {
   "_comment": "Projects on the 'In progress' page (in-progress.html). Not on GitHub, so everything here is curated. devices: one or more device frames (window, tv, android, ios), each with its own screenshots. status: \"live\" puts a project in the Live group of the home page dock. Mindheim is on the home page and has its own page (data/mindheim.json).",
-  "platforms": ["Web", "Android", "iOS"],
+  "platforms": ["Web", "Android", "iOS", "Desktop"],
   "projects": [
     {
       "name": "kajszi",
@@ -96,6 +96,37 @@
             ["assets/shots/RaklapRendezo/plan-top.jpg", "Packing plan · top view"],
             ["assets/shots/RaklapRendezo/summary.jpg", "Summary"],
             ["assets/shots/RaklapRendezo/input.jpg", "Paste and settings"]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fejlesztohaz",
+      "status": "live",
+      "title": "Fejlesztőház",
+      "platform": "macOS · Windows desktop app",
+      "accent": "#3a9a8a",
+      "icon": "assets/shots/Fejlesztohaz/icon.svg",
+      "tagline": "Every child has their place – and their time.",
+      "description": "A desktop app for a child development centre that plans its children, colleagues, rooms and weekly sessions for the whole school year. The timetable is one repeating week of five 45-minute sessions each morning, with group movement sessions and one-to-one cognitive ones. When a new child is admitted, it suggests the best free times, and all data stays on the centre's own computer in an encrypted database.",
+      "highlights": [
+        ["Admission wizard", "Four steps from the child's details to their week. It ranks back-to-back movement + cognitive pairs, checks the age match with the group and keeps siblings on nearby slots."],
+        ["The week at a glance", "A heatmap of every room on an average week, each colleague's weekly load, and how many free slots and double pairs are left."],
+        ["Rooms and colleagues", "Assign a colleague to a room hour by hour; nobody can be in two rooms at once. Paperwork, preferred teachers and the waiting list are tracked too."],
+        ["Private by design", "An encrypted SQLite database with daily backups that are safe to keep in iCloud or OneDrive, encrypted exports, password-protected Excel files and a yearly reset."]
+      ],
+      "stack": ["Go · Wails 3", "Gin · encrypted SQLite", "Angular 22", "Spartan NG · Tailwind 4", "Hungarian"],
+      "devices": [
+        {
+          "frame": "window",
+          "shots": [
+            ["assets/shots/Fejlesztohaz/overview.jpg", "Overview"],
+            ["assets/shots/Fejlesztohaz/admission-slots.jpg", "Admission · suggested times"],
+            ["assets/shots/Fejlesztohaz/admission-week.jpg", "Admission · the child's week"],
+            ["assets/shots/Fejlesztohaz/children.jpg", "Children"],
+            ["assets/shots/Fejlesztohaz/rooms.jpg", "Rooms and timetable"],
+            ["assets/shots/Fejlesztohaz/teachers.jpg", "Colleagues"],
+            ["assets/shots/Fejlesztohaz/import.jpg", "Import preview"]
           ]
         }
       ]
